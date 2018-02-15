@@ -26,11 +26,11 @@
 				color: red;
 				line-height: 2em;
 			}
-			.locationName {
+			.unstartedName {
 				color: blue;
 				text-align: center;
 			}
-			.topicName {
+			.inProgressName {
 				color: purple;
 				text-align: center;
 			}
@@ -48,12 +48,20 @@
 				color: lightblue;
 			}
 		</style>
+		<script>
+ 
+    	function coolFunction1() {
+        	document.getElementById("cool1").innerHTML = "This is a function";
+    	}
+	    </script>
+ 
 	</head>
 	<body>
 		<!-- Opening Paragraph and basic information text -->
 		<img src="http://www.lsu.edu/stratcomm/online-brand-guide/images/LSU_Purple_RGB.png" alt="LsuLogo" height="100">
-		<h1>About</h1>
-		<p id="opening">Welcome to <strong>Big Mike's HTML practice page</strong>. I'm a student at LSU in the <em>College of Engineering.</em></p>
+		<h1>Collabify</h1>
+		<p id="opening">Welcome to <strong>Collabify's HTML practice page</strong>. Dang son, <em>this text is italiziced</em>.</p>
+
 		<h2>This is a list with links</h2>
 		<ul><!-- Location information list -->
 			<li>USA</li>
@@ -71,51 +79,55 @@
 		</ul>
 
 		<!-- Upcoming classes table -->
-		<h2>This is a table</h2>
-			<table border="1">
+		<h2>This is a ticc table</h2>
+			<table border="5">
 			<thead>
 				<tr>
-					<th>Location</th>
-					<th>Topic</th>
+					<th>Unstarted</th>
+					<th>In Progress</th>
 				</tr>
 			<tbody>
 				<tr>
-					<td class="locationName">New York</td>
-					<td class="topicName">JavaScript & jQuery</td>
+					<td class="unstartedName">The Board</td>
+					<td class="inProgressName">JavaScript & CSS</td>
 				</tr>
 				<tr>
-					<td class="locationName">San Francisco</td>
-					<td class="topicName">HTML & CSS</td>
+					<td class="unstartedName">The Website</td>
+					<td class="inProgressName">Servers</td>
 				</tr>
 			</table>
 		
 		<!-- User information buttons -->
 		<h2>These are inputs and labels!</h2>
-		<label class="signUp">Name: <input id="nameBox" type="text" name="name"></label><br>
-		<label class="signUp">Email: <input  id="emailBox" type="text" name="email"></label><br>
+		<label class="signUp">Name Here Yo: <input id="nameBox" type="text" name="name"></label><br>
+		<label class="signUp">Email in this: <input  id="emailBox" type="text" name="email"></label><br>
 		<label class="signUp">Location<select name="location" id="location">
-			<option value="here">San Francisco</option>
-			<option value="there">New York</option>
+			<option value="here">here</option>
+			<option value="there">there</option>
 		</select></label><br>
 		<fieldset class="signUp">
 			<legend>Gender:</legend>
 			<label>Female <input type="radio" name="female" id="female" value="female"></label>
 			<label>Male <input type="radio" name="male" id="male" value="male"></label>
+			<label>Attack Helicopter <input type="radio" name="apache" id="apache" value="apache"></label>
 		</fieldset><br>
-		<label class="signUp">Experiance: <br><textarea name="experiance"></textarea></label><br>
-		<button type="submit">Sign Up</button><br><br>
+		<label class="signUp">This is a text box: <br><textarea name="experiance"></textarea></label><br>
+
+		<h1>Fun-ctions!</h1>
+		<p id="cool1">A Paragraph.</p>
+    	<button type="button" onclick="coolFunction1()">Do the thing</button>
+		
+		<button type="submit">Does Nothing.</button><br><br>
 
 		<h2>These are embeds</h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d101519.40696051813!2d30.36011998519771!3d59.93980562212261!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1517327110959" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 		<br>
 		<br>
-		<iframe src="https://widgets.itunes.apple.com/widget.html?c=us&brc=FFFFFF&blc=FFFFFF&trc=FFFFFF&tlc=FFFFFF&d=&t=&m=music&e=album&w=250&h=300&ids=1312807647&wt=discovery&partnerId=&affiliate_id=&at=&ct=" frameborder=0 style="overflow-x:hidden;overflow-y:hidden;width:250px;height: 300px;border:0px"></iframe>
-		<br>
-		<br>	
 		<iframe width="640" height="360" src="https://www.youtube.com/embed/DYIxd4STIkA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		<br>
 		<br>
 
+		<p>Links my man</p>
 		<p id="closing"><a href="https://twitter.com/?lang=en" id="twitter"> 	Twitter  | <a href="https://www.facebook.com/">  Facebook  | <a href="https://www.flickr.com/">  Flickr</p>
 	</body>
 </html>
