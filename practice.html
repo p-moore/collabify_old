@@ -222,12 +222,132 @@
 				color: lightblue;
 			}
 		</style>
-		<script>
+
  
-    	function coolFunction1() {
-        	document.getElementById("cool1").innerHTML = "This is a function";
-    	}
-	    </script>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Modal form</title>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui.min.css">
+  <link rel="stylesheet" href="dialoguetheme.css">
+  <style>
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  <script>
+  $( function() {
+    var dialog, form,
+ 
+      
+      taskName = $( "#taskName" ),
+      priorityLevel = $( "#priorityLevel" ),
+      assignedTo = $( "#assignedTo" ),
+      allFields = $( [] ).add( taskName ).add( priorityLevel ).add( assignedTo ),
+      tips = $( ".validateTips" );
+ 
+    function updateTips( t ) {
+      tips
+        .text( t )
+        .addClass( "ui-state-highlight" );
+      setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + "." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function addUser() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
+ 
+      valid = valid && checkLength( taskName, "taskName", 3, 16 );
+      valid = valid && checkLength( priorityLevel, "priorityLevel", 2, 80 );
+      valid = valid && checkLength( assignedTo, "assignedTo", 3, 16 );
+ 
+      valid = valid && checkRegexp( taskName, /^[a-z]([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( priorityLevel, /^[a-z]([0-9a-z_\s])+$/i, "eg. Low, medium, or high" );
+      valid = valid && checkRegexp( assignedTo, /^[a-z]([0-9a-z_\s])+$/i, "Name of worker task is assigned to. field may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+ 
+      if ( valid ) {
+        $( "#users tbody" ).append( "<tr>" +
+          "<td>" + taskName.val() + "</td>" +
+          "<td>" + priorityLevel.val() + "</td>" +
+          "<td>" + assignedTo.val() + "</td>" +
+        "</tr>" );
+        dialog.dialog( "close" );
+      }
+      return valid;
+    }
+	
+	
+
+	
+	function createTask() {
+		addUser();
+		<!-- log(taskCreated(); -->
+		<!-- writetodatabase(taskName, priorityLevel, assignedTo); -->
+	}
+	
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 400,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Create a task": createTask,
+        Cancel: function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+        form[ 0 ].reset();
+        allFields.removeClass( "ui-state-error" );
+      }
+    });
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+    $( "#create-user" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+  } );
+  </script>
+  
+  
+ 
+ 
  
 	</head>
 	<body>
@@ -288,10 +408,91 @@
 		<label class="signUp">This is a text box: <br><textarea name="experiance"></textarea></label><br>
 
 		<h1>Fun-ctions!</h1>
-		<p id="cool1">A Paragraph.</p>
-    	<button type="button" onclick="coolFunction1()">Do the thing</button>
 		
-		<button type="submit">Does Nothing.</button><br><br>
+		
+		<div id="dialog-form" title="Create new user">
+  <p class="validateTips">All form fields are required.</p>
+ 
+  <form>
+    <fieldset>
+      <label for="taskName">Task Name</label>
+      <input type="text" name="taskName" id="taskName" value="My task" class="text ui-widget-content ui-corner-all">
+      <label for="priorityLevel">Priority Level</label>
+      <input type="text" name="priorityLevel" id="priorityLevel" value="High" class="text ui-widget-content ui-corner-all">
+      <label for="assignedTo">Assigned to</label>
+      <input type="text" name="assignedTo" id="assignedTo" value="Worker" class="text ui-widget-content ui-corner-all">
+ 
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+ 
+ 
+<div id="users-contain" class="ui-widget">
+  <h1>Existing Tasks:</h1>
+  <table id="users" class="ui-widget ui-widget-content">
+    <thead>
+      <tr class="ui-widget-header ">
+        <th>Task Name</th>
+        <th>Priority Level</th>
+        <th>Assigned To</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>My first task</td>
+        <td>HIGHHHHH</td>
+        <td>Me</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button id="create-user">Create new task</button>
+		
+		
+		
+		
+		
+		
+		<script>
+function writeText(taskName, priorityLevel, assignedTo) {
+    sw = new StreamWriter("TestFile.txt");
+    sw.WriteLine(taskName);
+    sw.WriteLine(priorityLevel);
+	sw.WriteLine(assignedTo);
+    sw.Close();
+}
+
+function onInitFs(fs) {
+
+  fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+
+    // Create a FileWriter object for our FileEntry (log.txt).
+    fileEntry.createWriter(function(fileWriter) {
+
+      fileWriter.onwriteend = function(e) {
+        console.log('Write completed.');
+      };
+
+      fileWriter.onerror = function(e) {
+        console.log('Write failed: ' + e.toString());
+      };
+
+      // Create a new Blob and write it to log.txt.
+      var blob = new Blob([taskName, priorityLevel, assignedTo]);
+
+      fileWriter.write(blob);
+
+    }, errorHandler);
+
+  }, errorHandler);
+
+}
+
+window.requestFileSystem(window.TEMPORARY, 1024*1024, onInitFs, errorHandler);
+</script>
+
 
 		<h2>These are embeds</h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d101519.40696051813!2d30.36011998519771!3d59.93980562212261!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1517327110959" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
