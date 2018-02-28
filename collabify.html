@@ -2,20 +2,9 @@
 <html>
 <head>
 	<title></title>
-	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-	<script>
-  		// Initialize Firebase
-  			var config = {
-    			apiKey: "AIzaSyCU2SSWKNM_ByPOMCS9tKHLZG-24xz_-7g",
-    			authDomain: "collabify-lsu3380.firebaseapp.com",
-    			databaseURL: "https://collabify-lsu3380.firebaseio.com",
-    			projectId: "collabify-lsu3380",
-    			storageBucket: "",
-    			messagingSenderId: "851211215524"
-  			};
-  		firebase.initializeApp(config);
-	</script>
 
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	
 </head>
 <body>
 	<div class='container'>
@@ -35,8 +24,24 @@
 			Logout
 		</button>
 	</div>
+
 <script type="text/javascript">
+
 		function Login() {
+		
+  		// Initialize Firebase
+  			
+  			var config = {
+    			apiKey: "AIzaSyCU2SSWKNM_ByPOMCS9tKHLZG-24xz_-7g",
+    			authDomain: "collabify-lsu3380.firebaseapp.com",
+    			databaseURL: "https://collabify-lsu3380.firebaseio.com",
+    			projectId: "collabify-lsu3380",
+    			storageBucket: "",
+    			messagingSenderId: "851211215524"
+  			};
+  			
+  			firebase.initializeApp(config);
+
 			const txtEmail = document.getElementById('txtEmail');
 			const txtPasssword = document.getElementById('txtPassword');
 			const btnLogin = document.getElementById('btnLogin');
@@ -51,6 +56,7 @@
 				auth.signInWithEmailAndPassword(email, password);
 			});
 		}
+
 </script>
 	
 </body>
