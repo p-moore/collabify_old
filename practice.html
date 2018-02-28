@@ -290,11 +290,11 @@
       allFields.removeClass( "ui-state-error" );
  
       valid = valid && checkLength( taskName, "task name", 1, 30 );
-      valid = valid && checkLength( priorityLevel, "priority level", 1, 30 );
+      valid = valid && checkLength( priorityLevel, "priority level", 1, 2 );
       valid = valid && checkLength( assignedTo, "worker's name(s)", 1, 30 );
  
       valid = valid && checkRegexp( taskName, /([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
-      valid = valid && checkRegexp( priorityLevel, /([0-9a-z_\s])+$/i, "eg. Low, medium, or high" );
+      valid = valid && checkRegexp( priorityLevel, /([0-9])+$/i, "Priority level must be an integer from 1 to 99" );
       valid = valid && checkRegexp( assignedTo, /([0-9a-z_\s])+$/i, "Name of worker task is assigned to. field may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
  
       if ( valid ) {
