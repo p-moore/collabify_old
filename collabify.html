@@ -1,18 +1,33 @@
-</!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Login Text</title>
 
 	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-	
+
+	<script type="text/javascript">
+		var config = {
+    			apiKey: "AIzaSyCU2SSWKNM_ByPOMCS9tKHLZG-24xz_-7g",
+    			authDomain: "collabify-lsu3380.firebaseapp.com",
+    			databaseURL: "https://collabify-lsu3380.firebaseio.com",
+    			projectId: "collabify-lsu3380",
+    			storageBucket: "",
+    			messagingSenderId: "851211215524"
+  			};
+  			
+  			firebase.initializeApp(config);			
+	</script>
+
 </head>
 <body>
+	
+
 	<div class='container'>
 		<input type="email" id="txtEmail" placeholder='Email'>
 
-		<input type="password" id="txtPasswaord" placeholder="Password">
+		<input type="password" id="txtPassword" placeholder="Password">
 
-		<button id="btnLogin" class="btn btn-action">
+		<button id="btnLogin" onClick = 'click' class="btn btn-action">
 			Log In
 		</button>
 		
@@ -24,40 +39,27 @@
 			Logout
 		</button>
 	</div>
+	<script type="text/javascript">
 
-<script type="text/javascript">
-
-		function Login() {
-		
-  		// Initialize Firebase
-  			
-  			var config = {
-    			apiKey: "AIzaSyCU2SSWKNM_ByPOMCS9tKHLZG-24xz_-7g",
-    			authDomain: "collabify-lsu3380.firebaseapp.com",
-    			databaseURL: "https://collabify-lsu3380.firebaseio.com",
-    			projectId: "collabify-lsu3380",
-    			storageBucket: "",
-    			messagingSenderId: "851211215524"
-  			};
-  			
-  			firebase.initializeApp(config);
-
+			console.log('I loaded');
+			
 			const txtEmail = document.getElementById('txtEmail');
 			const txtPasssword = document.getElementById('txtPassword');
 			const btnLogin = document.getElementById('btnLogin');
 			const btnSignUp = document.getElementById('btnSignUp');
 			const btnLogout = document.getElementById('btnLogout');
-
+			
 			btnLogin.addEventListener('click', e => {
 				const email = txtEmail.value;
 				const pass = txtPassword.value;
 				const auth = firebase.auth();
 
-				auth.signInWithEmailAndPassword(email, password);
+				const promise = auth.signInWithEmailAndPassword(email, pass);
+				promise.catch(e => console.log(e.message));
+				
+				console.log('hello world');
 			});
-		}
-
-</script>
-	
+		
+	</script>
 </body>
 </html>
