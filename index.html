@@ -25,104 +25,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<!-- Firebase back-end code -->
-
-<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCUI53GZ6IXzu957lBR-WWfmgEPNj-Nd8c",
-    authDomain: "collabify-us.firebaseapp.com",
-    databaseURL: "https://collabify-us.firebaseio.com",
-    projectId: "collabify-us",
-    storageBucket: "collabify-us.appspot.com",
-    messagingSenderId: "458971277153"
-  };
-  firebase.initializeApp(config);
-</script>
-
-<script src="index.js"/>
-
-<!-- /Firebase back-end code -->
-
-
-
-// <!-- FireBase Authentication -->
-// <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"/>
-
-
-<script>
-//
-//
-// function init(){
-// 	// Initialize Firebase
-// 	  var config = {
-// 		apiKey: "AIzaSyC4HNK8mVykBDXOe_pLZscNXLYQGPU6q98",
-// 		authDomain: "collabify-81977.firebaseapp.com",
-// 		databaseURL: "https://collabify-81977.firebaseio.com",
-// 		projectId: "collabify-81977",
-// 		storageBucket: "collabify-81977.appspot.com",
-// 		messagingSenderId: "301636297343"
-// 	  };
-// 	  firebase.initializeApp(config);
-//
-// 	  const username = document.getElementById('userName');
-// 	  const password = document.getElementById('userPassword');
-// 	  const loginbtn = document.getElementById('btnLogin');
-// 	  const Signupbtn = document.getElementById('btnPass');
-//
-// 	  loginbtn.addEventListener('click', e => {
-//
-// 		const email = username.value;
-// 		const passwordStored  = password.value;
-// 		const auth = firebase.auth();
-//
-// 		//Sign-in process
-//
-// 		const promise = auth.signInWithEmailAndPassword(email,password);
-// 		promise.catch(e => console.log(e.message));})
-//
-//
-// 		//firebase.auth().onAuthStateChanged(firebaseUser){
-//
-// 		//	if(firebaseUser){console.log(firebaseUser)};
-// 		//	else{console.log('Not logged in')};
-//
-//
-// 		//}
-//
-//
-//
-//
-//
-// 	}
-//
-// </script>
-
-<!-- Sign in Validation Function -->
-<script>
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
-function ClearValues() {
-    document.getElementById("LoginInfo").reset();
-	document.getElementById("SignUpInfo").reset();
-}
-</script>
-
-<!-- /Sign in Validation Function -->
-
-<!-- Closed FireBase Authentication -->
-
 <title>Collabify</title>
 
 
 <style>
+
 .well-header{
 	background-color:black;
 }
@@ -132,6 +39,7 @@ body {
   -webkit-font-smoothing: antialiased;
   font: normal 14px Roboto,arial,sans-serif;
 }
+
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
@@ -143,9 +51,11 @@ body {
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
 }
+
 .form-control {
     border-radius: 10px;
 }
+
 .wrapper {
     text-align: center;
 }
@@ -155,12 +65,8 @@ body {
 .footer-bg{
 	color:black;
 }
-.footer-main{
-	background-color:black;
-}
-body{
-background-image:images/collaboration.jpg;
-}
+
+
 </style>
 
 
@@ -168,200 +74,118 @@ background-image:images/collaboration.jpg;
 
 <body>
 
-<div>
-
 <div class="container-fluid">
 
 <!-- Header container -->
 	<div class="well well-header">
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
-
+		
 		<div class="container" align="right">
-			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button>
-			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+			<button class="btn btn-primary btn-large" data-toggle="modal" data-target="#LoginModal">Login</button>
+			<button class="btn btn-primary btn-large" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+				
 				<!-- Search Bar -->
+			
 				<div class="row">
 				<div class="col-lg-6">
 					<div class="input-group" >
 						<span class="input-group-btn">
 							<button class="btn btn-default" type="button">Go!</button>
 						</span>
-						<input type="text" class="form-control" placeholder="Search for..."></input>
+						<input type="text" class="form-control" placeholder="Search for...">
 					</div><!-- /input-group -->
 				</div><!-- /.col-lg-6 -->
-				<div class="col-lg-6">
-					<div class="input-group">
+					<div class="col-lg-6">
+						<div class="input-group">
+						</div>
 					</div>
 				</div>
-				</div>
+			
 		</div>
+		
 		<!-- /Search Bar -->
-
-
+		
 		<!-- Login Modal -->
-
+		
 		<div class="modal fade" id="LoginModal" role="dialog">
 			<div class="modal-dialog">
-
-				<!-- Modal content-->
-				<div class="modal-content">
+			
+			<!-- Modal content-->
+			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Welcome back!</h4>
 				</div>
 			<div class="modal-body">
-				<form action="/post.php" method="post" id="LoginInfo">
+				
+				
+				<form action="#">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="form-login">
 								<h4>Sign in</h4>
 								<p> to continue to Collabify </p>
-								<input type="text" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
+								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" />
 								</br>
-								<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
+								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
 								</br>
 								<div class="wrapper">
-								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Login" onclick="login()" required </><i class="fa fa-sign-in"></i>
-
+								<span class="group-btn">     
+									<a href="#" class="btn btn-primary">Login <i class="fa fa-sign-in"></i></a>
 								</span>
 								</div>
 								</div>
-
+							
 							</div>
 						</div>
 					</div>
+				
+					
+				
 				</form>
-			</div>
-
-			<div class="modal-footer">
-				<button onclick="ClearValues()" class="btn btn-primary btn-default">Clear fields</button>
-				<button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
-			</div>
-			</div>
-			</div>
-		</div>
-
-		<!-- /Login Modal -->
-
-
-		<!-- Sign-up Modal -->
-
-		<div class="modal fade" id="SignUpModal" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Register to get started</h4>
-				</div>
-			<div class="modal-body">
-				<form action="/post.php" method="post" id="SignUpInfo">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-5">
-								<div class="form-login">
-								<h4>Sign up</h4>
-								<p> to continue to Collabify </p>
-								<input type="text" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
-								</br>
-								<input type="password" id="SignUpUserPassword" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
-								<input type="text"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
-								<br>
-								<input type="email" id="SignUpEmail" class="form-control input-sm chat-input" placeholder="Enter a Valid email address" required />
-								<br>
-								<input type="text"  id="SignUpOrg" class="form-control input-sm chat-input" placeholder="Organization"required />
-								<br>
-								<div class="wrapper">
-								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Sign-up" onclick="creatUser()"required </><i class="fa fa-sign-in"></i>
-								</span>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
+				
 			</div>
 			<div class="modal-footer">
-			<button onclick="ClearValues()" class="btn btn-primary btn-default">Clear fields</button>
 				<button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
 			</div>
+			
 		</div>
-
 		<!-- /Login Modal -->
-
-
-
+		
+		
+		
 	</div>
 	</div>
-
+	
 	</div>
-	</div>
+	<div class="container-fluid">
 
-	<!-- Body opening image -->
-	<div class="container-fluid body-image">
 		<img src="images/collaboration.jpg" class=" image-opacity img-thumbnail img-fluid" alt="Collaborate">
+
 	</div>
-	<!-- Close Body Image -->
-
-
-
-	<!-- User Login -->
-
-<!-- Logged In state test  -->
-
-
-
-<!-- /Logged In state test -->
-
-
-
-	<!-- Closed User Login -->
-
-
+	
+	
 	<div class="container footer-bg">
-
-
-
+	
+		
+	
 	</div>
+
+
 <!-- Header container; -->
 
-
-<!-- Footer -->
-	<footer class="well footer footer-main">
-		<div class="container text-center">
-			<a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
-			<a href="#"><i class="fa fa-twitter" style="font-size:30px; padding:10px;"></i></a>
-			<a href="#"><i class="fa fa-google-plus" style="font-size:30px; padding:10px;"></i></a>
-			<a href="#"><i class="fa fa-instagram" style="font-size:30px; padding:10px;"></i></a>
-			<br>
-				<br>
-					<p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
-	    </div>
-	</footer>
-<!-- /Footer -->
+<!-- Body opening image -->
 
 
-</div>
 
-<div id="logger_out_state">
+<!-- Close Body Image -->
 
-<h1> Logged out sir! </h1>
 
-</div>
 
-<div id="logger_in_state">
 
-<h1> You are successfully logged in </h1>
 
-</div>
 
 
 </body>
-</div>
-</html>
