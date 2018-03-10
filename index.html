@@ -24,6 +24,57 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- FireBase Authentication -->
+<script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+<script>
+
+
+(function(){
+	// Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyC4HNK8mVykBDXOe_pLZscNXLYQGPU6q98",
+		authDomain: "collabify-81977.firebaseapp.com",
+		databaseURL: "https://collabify-81977.firebaseio.com",
+		projectId: "collabify-81977",
+		storageBucket: "collabify-81977.appspot.com",
+		messagingSenderId: "301636297343"
+	  };
+	  firebase.initializeApp(config);
+	  
+	  const username = document.getElementById('userName');
+	  const password = document.getElementById('userPassword');
+	  const loginbtn = document.getElementById('btnLogin');
+	  const Signupbtn = document.getElementById('btnPass');
+	  
+	  loginbtn.addEventListener('click', e => {
+		
+		const email = username.value;
+		const passwordStored  = password.value;
+		const auth = firebase.auth();
+		
+		//Sign-in process
+		
+		const promise = auth.signInWithEmailAndPassword(email,password);
+		promise.catch(e => console.log(e.message));})
+	  
+	  
+		//firebase.auth().onAuthStateChanged(firebaseUser){
+		
+		//	if(firebaseUser){console.log(firebaseUser)};
+		//	else{console.log('Not logged in')};
+		
+		
+		//}
+	  
+
+
+
+
+})
+  
+</script>
+
+<!-- Closed FireBase Authentication -->
 
 <title>Collabify</title>
 
@@ -82,8 +133,8 @@ body {
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
 		
 		<div class="container" align="right">
-			<button class="btn btn-primary btn-large" data-toggle="modal" data-target="#LoginModal">Login</button>
-			<button class="btn btn-primary btn-large" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button>
+			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
 				
 				<!-- Search Bar -->
 			
@@ -129,7 +180,7 @@ body {
 								<p> to continue to Collabify </p>
 								<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="Username" />
 								</br>
-								<input type="text" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
+								<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="Password" />
 								</br>
 								<div class="wrapper">
 								<span class="group-btn">     
@@ -160,11 +211,23 @@ body {
 	</div>
 	
 	</div>
+	<!-- Body opening image -->
 	<div class="container-fluid">
 
 		<img src="images/collaboration.jpg" class=" image-opacity img-thumbnail img-fluid" alt="Collaborate">
 
 	</div>
+	<!-- Close Body Image -->
+	
+	
+	
+	<!-- User Login -->
+	
+	
+	
+	
+	
+	<!-- Closed User Login -->
 	
 	
 	<div class="container footer-bg">
@@ -176,11 +239,11 @@ body {
 
 <!-- Header container; -->
 
-<!-- Body opening image -->
 
 
 
-<!-- Close Body Image -->
+
+
 
 
 
