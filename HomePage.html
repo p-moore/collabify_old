@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang ="en-US">
+<head>
+<meta charset ="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Collabify</title>
+
+
+<style>
+
+.well-header{
+	background-color:black;
+}
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+.image-opacity{
+	opacity:0.2;
+}
+.footer-bg{
+	color:black;
+}
+.footer-main{
+	background-color:black;
+
+}
+.plot_img{
+	height: 300px;
+	width: 300px;
+}
+.card-border{
+	border: 5px;
+	border-width: medium;
+}
+
+body{
+background-image:images/collaboration.jpg;
+}
+
+</style>
+
+<script src="index.js"></script>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+
+<!-- Header container -->
+
+	<div class="well well-header">
+
+		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
+
+		<div class="container" align="right">
+			<button class="btn btn-primary btn-large" id="btnLogout" onclick="logout()">Logout</button>
+    </div>
+
+      <p style="color:white;"><strong> Welcome!</strong></p>
+      <p id="user" style="color:white;"> </p>
+		</div>
+
+<!-- /Header container -->
+
+
+<div class="container-fluid">
+	<div  style="width: 100%; overflow: hidden;">
+
+		<div style="width: 600px; float: left;">
+			<p style="color:black; font-family:monospace; font-size:25px;"> My Projects </p>
+
+		<div class="card text-white bg-info mb-3" style="width: 30rem;">
+		  <img class="card-img-top plot_img" src="images/plot_ex.png" alt="Card image cap">
+		  <div class="card-body">
+		    <h5 class="card-title"><strong>Quick View</strong></h5>
+		    <p class="card-text">A quick summary of available projects.</p>
+		    <a href="#" class="btn btn-primary">View All</a>
+		  </div>
+		</div>
+
+	</div>
+</div>
+
+	<div>
+
+		<br><p style="color:black; font-family:monospace; font-size:25px;"> My Team </p>
+		<div class="card text-white bg-info mb-3" style="width: 30rem;">
+			<img class="card-img-top plot_img"src="images/fa-Users.png" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title"><strong>Collaborate</strong></h5>
+				<p class="card-text">Connect with peers to work on a Project.</p>
+				<a href="#" class="btn btn-primary">Connect</a>
+			</div>
+		</div>
+
+	</div>
+	<br>
+
+</div>
+</div>
+</body>
+<html>
