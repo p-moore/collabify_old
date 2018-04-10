@@ -1,4 +1,5 @@
 
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -14,15 +15,26 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-
-
-
 function login(){
 
 var username = document.getElementById("email_field").value;
 var pass = document.getElementById("password_field").value;
 window.alert(username + " " + pass );
 
+firebase.auth().signInWithEmailAndPassword(username, pass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    
+    if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+    } else {
+        alert(errorMessage);
+    }
+    console.log(error);
+}); 
+
+/* SIGN IN CHECK
 firebase.auth().createUserWithEmailAndPassword(username, pass).catch(function(error) {
   // Handle Errors here.
   var errorCode = error.code;
@@ -31,15 +43,14 @@ firebase.auth().createUserWithEmailAndPassword(username, pass).catch(function(er
 
   window.alert("Error: " + errorMessage);
 });
+*/
 
 var user = firebase.auth().currentUser;
 var Name = user.displayName;
 
 if(user != null){
-
-  var email = user.email;
-
-  document.getElementById("user").innerHTML = + Name;
+ 	var email = user.email;
+  	document.getElementById("user").innerHTML = + Name;
 }
 
 }
@@ -52,3 +63,4 @@ function logout(){
   // An error happened.
 });
 }
+
