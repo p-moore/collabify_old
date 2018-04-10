@@ -8,8 +8,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     // No user is signed in.
 
-    document.getElementById("logged_in_state").style.display = "none";
-    document.getElementById("logged_out_state").style.display = "block";
+  document.getElementById("logged_in_state").style.display = "none";
+  document.getElementById("logged_out_state").style.display = "block";
   }
 });
 
