@@ -1,105 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Page! LSU</title>
-
+	<title>Preston's Page</title>
+	<link rel="stylesheet" href="C:\Users\Preston\Documents\CODE\bootstrap\css\bootstrap.min.css">
 	<style>
-		#Text1 {
-			color: red
-		}
-		#Text4 {
-			color: blue
-		}
 
-		.para{
-			color: yellow	
-		}
-
-		body table thead {
-			color: darkred;
-		}
-
-		body ul ul li {
-			color: lightgreen;
-			text-align: center
-			
-			font: 12em italic sans-serif;
-			
-			font-size: 12em;
-			font-style: italic;
-			font-family: sans-serif; 
-		}
 	</style>
 
 	</head>
 	<body>
-		<h3>This font is bigger</h3>			
-		<p id="Text1" class="para">This is a webpage</p>
-		<button id='catButton'>Cat!</button>
-		<p id="Text2" class="para">This is a webpage</p>
-		<p id="Text3" class="para">This is a webpage</p>
-		<p id="Text4" class="para">This is a webpage</p>
+		<button type="button" class="btn btn-primary">CLICK HERE</button>
 
+		<button id='catButton' onClick = 'buttonFunction()'>Cat!</button>
 
-		<ul>
-			<li>item 1</li>
-			<li>item 2</li>
-			<li>item 3</li>
-			<ul>
-				<li>Deeep</li>
-			</ul>
-		</ul>
+		<div class="container-fluid" onclick="myfunction()">
+ 			<h1> This is my first Container. </h1>
 
-		<ul>
-			<li>item 1</li>
-			<li>item 2</li>
-			<li>item 3</li>
-			<ul>
-				<li>Deeep</li>
-			</ul>
-		</ul>
-
-		<table border="7">
-			<thead>
-				<tr>
-					<th>
-						Col1
-					</th>
-					<th>
-						Col2
-					</th>
-					<th>
-						Col2
-					</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>thing1</td>
-					<td>thing2</td>
-					<td>thing3</td>
-				</tr>
-				<tr>
-					<td>thing1</td>
-					<td>thing2</td>
-					<td>thing3</td>
-				</tr>
-				<tr>
-					<td>thing1</td>
-					<td>thing2</td>
-					<td>thing3</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<img src="https://pbs.twimg.com/profile_images/972154872261853184/RnOg6UyU_400x400.jpg" height="50">
-
-		<a href="https://mylsu.apps.lsu.edu/group/mycampus/">Moodle</a>
-		<br>
-		<label>Hello
-		<textarea name="Area"></textarea>
-		</label>
-
+ 			
+		</div>
+		
 
 
 	<script>
@@ -111,9 +30,8 @@
 			fur: 'brown',
 			name: 'stacy',
 			age: 12,
+			
 		};
-
-		var p = document.getElementById('Text1');
 
 		var button = document.getElementById('catButton');
 
@@ -128,9 +46,13 @@
 			console.log(string)
 		};
 
+		function buttonFunction() {
+			console.log("I did this.");
+			document.getElementById('catButton').innerHTML = "HelloWorld";
+		};
+
 		function myCat(cat) {
 			var catInfo = "This cat has " + cat.fur + "fur. It is named " + cat.name + ' and is ' + cat.age + ' years old.'
-			button.innerHTML = catInfo;
 		};
 
 		myCat(aCat);
@@ -140,4 +62,5 @@
 
 	</script>
 	</body>
+
 </html>

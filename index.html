@@ -21,6 +21,8 @@
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -42,7 +44,7 @@
   firebase.initializeApp(config);
 </script>
 
-<script src="index.js"/>
+<script src="js/index.js"/>
 
 <!-- /Firebase back-end code -->
 
@@ -162,7 +164,28 @@ body {
 </head>
 
 <body>
-<div>
+
+
+</header>
+
+<!--Navbar-->
+
+<div class="container-fluid navbar navbar-default navbar-fixed-top row">
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="">Home</a></li>
+		<li><a href="">Profile</a></li>
+		<li><a href="about.html">About</a></li>
+	</ul>
+	
+<input type="text" placeholder="Search...">
+</div>
+
+<!-- /Navbar -->
+
+<br>
+	<br>
+		<br>
+			<br>
 
 <div class="container-fluid">
 
@@ -178,12 +201,7 @@ body {
 				<div class="row">
 				<div class="col-lg-6">
 					<div class="input-group" >
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Go!</button>
-						</span>
-						<input type="text" class="form-control" placeholder="Search for..."></input>
-					</div><!-- /input-group -->
-				</div><!-- /.col-lg-6 -->
+						</div><!-- /.col-lg-6 -->
 				<div class="col-lg-6">
 					<div class="input-group">
 					</div>
@@ -293,24 +311,7 @@ body {
 </div>
 
 
-<!-- Navbar -->
-<div class="container-fluid Navbar">
-  <nav class=" container-fluid navbar navbar-inverse ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Get Started!</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
-        </ul>
-    </div>
-  </nav>
 
-</div>
-<!-- /Navbar -->
 
 
 <!-- SlideShow -->
@@ -371,15 +372,18 @@ body {
 </div>
 
 <!-- Login status Indicators -->
-<div id="logged_out_state">
-  <h1> Logged out! </h1>
-</div>
 
 <div id="logged_in_state">
   <h1> You are successfully logged in </h1>
+ 
+</div>
+<div id="logged_out_state">
+  <h1> You are successfully logged out </h1>
 </div>
 <!-- /Login status Indicators -->
 
+
+</script>
 </body>
 </div>
 </html>
