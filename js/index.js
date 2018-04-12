@@ -1,10 +1,13 @@
 firebase.auth().onAuthStateChanged(function(user) {
   var user = firebase.auth().currentUser;
+  
   if (user) {
     // User is signed in.
     document.getElementById("logged_in_state").style.display = "initial";
     document.getElementById("logged_out_state").style.display = "none";
     window.location.href = "HomePage.html";
+	var name = user.displayName;
+	document.getElementById("user").innerHTML = name;
     
   } else {
     // No user is signed in.
@@ -38,4 +41,15 @@ window.alert(username + " " + pass );
 
 
 
+}
+
+
+function logout(){
+	
+	firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+  window.location.href = "index.html";
+}).catch(function(error) {
+  // An error happened.
+});
 }
