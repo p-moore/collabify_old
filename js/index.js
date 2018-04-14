@@ -39,11 +39,11 @@ window.alert(username + " " + pass );
 
 }
 
-
 function logout(){
-	
+  window.alert('logged out');
 	firebase.auth().signOut().then(function() {
     // Sign-out successful.
+
     window.location.href = "index.html";
   }).catch(function(error) {
     // An error happened.
