@@ -1,91 +1,85 @@
 <!DOCTYPE html>
 <html lang ="en-US">
 <head>
-<meta charset ="UTF-8">
+	<meta charset ="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Collabify</title>
+	<title>Collabify</title>
 
+	<style>
 
-<style>
+		.well-header{
+			background-color:black;
+		}
+	
+		@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+	
+		body {
+  			background-color:#fff;
+  			-webkit-font-smoothing: antialiased;
+  			font: normal 14px Roboto,arial,sans-serif;
+		}
 
-.well-header{
-	background-color:black;
-}
-@import url(http://fonts.googleapis.com/css?family=Roboto:400);
-body {
-  background-color:#fff;
-  -webkit-font-smoothing: antialiased;
-  font: normal 14px Roboto,arial,sans-serif;
-}
+		.form-login {
+    		background-color: #EDEDED;
+    		padding-top: 10px;
+    		padding-bottom: 20px;
+    		padding-left: 20px;
+    		padding-right: 20px;
+    		border-radius: 15px;
+    		border-color:#d2d2d2;
+    		border-width: 5px;
+    		box-shadow:0 1px 0 #cfcfcf;
+		}
+		.form-control {
+    		border-radius: 10px;
+		}
+		.wrapper {
+    		text-align: center;
+		}
+		.image-opacity{
+			opacity:0.2;
+		}
+		.footer-bg{
+			color:black;
+		}
+		.footer-main{
+			background-color:black;
+		}
+		.plot_img{
+			height: 300px;
+			width: 300px;
+		}
+		.card-border{
+			border: 5px;
+			border-width: medium;
+		}
 
-.form-login {
-    background-color: #EDEDED;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 15px;
-    border-color:#d2d2d2;
-    border-width: 5px;
-    box-shadow:0 1px 0 #cfcfcf;
-}
-
-.form-control {
-    border-radius: 10px;
-}
-
-.wrapper {
-    text-align: center;
-}
-.image-opacity{
-	opacity:0.2;
-}
-.footer-bg{
-	color:black;
-}
-.footer-main{
-	background-color:black;
-
-}
-.plot_img{
-	height: 300px;
-	width: 300px;
-}
-.card-border{
-	border: 5px;
-	border-width: medium;
-}
-
-body{
-background-image:images/collaboration.jpg;
-}
-
-</style>
-
-<script src="index.js"></script>
-
+		body{
+			background-image:images/collaboration.jpg;
+		}
+	</style>
+	<script src="index.js"></script>
 </head>
-
 <body>
 
 <div class="container-fluid">
@@ -98,11 +92,11 @@ background-image:images/collaboration.jpg;
 
 		<div class="container" align="right">
 			<button class="btn btn-primary btn-large" id="btnLogout" onclick="logout()">Logout</button>
-    </div>
+    	</div>
 
       <p style="color:white;"><strong> Welcome!</strong></p>
       <p id="user" style="color:white;"> </p>
-		</div>
+	</div>
 
 <!-- /Header container -->
 

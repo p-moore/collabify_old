@@ -23,8 +23,7 @@ var username = document.getElementById("email_field").value;
 var pass = document.getElementById("password_field").value;
 
 firebase.auth().signInWithEmailAndPassword(username, pass).catch(function(error) {
-  // Handle Errors here.
-  
+    //Errors
   	var errorCode = error.code;
     var errorMessage = error.message;
     
@@ -34,12 +33,9 @@ firebase.auth().signInWithEmailAndPassword(username, pass).catch(function(error)
         alert(errorMessage);
     }
     console.log(error);
-  // ...
 });
 
 window.alert(username + " " + pass );
-
-
 
 }
 
@@ -47,9 +43,9 @@ window.alert(username + " " + pass );
 function logout(){
 	
 	firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-  window.location.href = "index.html";
-}).catch(function(error) {
-  // An error happened.
-});
+    // Sign-out successful.
+    window.location.href = "index.html";
+  }).catch(function(error) {
+    // An error happened.
+  });
 }
