@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+ 
+<html>
+ 
+  <head>
+ 
+    <meta charset="utf-8">
+ 
+    <style>
+ 
+  .dropup,
+ 
+.dropdown {
+ 
+  position: relative;
+ 
+}
+ 
+
+ 
+.dropdown-toggle {
+ 
+  // Generate the caret automatically
+ 
+  @include caret;
+ 
+}
+ 
+
+ 
+// The dropdown menu
+ 
+.dropdown-menu {
+ 
+  position: absolute;
+ 
+  top: 100%;
+ 
+  left: 0;
+ 
+  z-index: $zindex-dropdown;
+ 
+  display: none; // none by default, but block on "open" of the menu
+ 
+  float: left;
+ 
+  min-width: $dropdown-min-width;
+ 
+  padding: $dropdown-padding-y 0;
+ 
+  margin: $dropdown-spacer 0 0; // override default ul
+ 
+  font-size: $font-size-base; // Redeclare because nesting can cause inheritance issues
+ 
+  color: $body-color;
+ 
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+ 
+  list-style: none;
+ 
+  background-color: $dropdown-bg;
+ 
+  background-clip: padding-box;
+ 
+  border: $dropdown-border-width solid $dropdown-border-color;
+ 
+  @include border-radius($dropdown-border-radius);
+ 
+  @include box-shadow($dropdown-box-shadow);
+ 
+}
+ 
+
+ 
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+ 
+// Just add .dropup after the standard .dropdown class and you're set.
+ 
+.dropup {
+ 
+  .dropdown-menu {
+ 
+    margin-top: 0;
+ 
+    margin-bottom: $dropdown-spacer;
+ 
+  }
+ 
+
+ 
+  .dropdown-toggle {
+ 
+    @include caret(up);
+ 
+  }
+ 
+}
+ 
+
+ 
+.dropright {
+ 
+  .dropdown-menu {
+ 
+    margin-top: 0;
+ 
+    margin-left: $dropdown-spacer;
+ 
+  }
+ 
+
+ 
+  .dropdown-toggle {
+ 
+    @include caret(right);
+ 
+    &::after {
+ 
+      vertical-align: 0;
+ 
+    }
+ 
+  }
+ 
+}
+ 
+
+ 
+.dropleft {
+ 
+  .dropdown-menu {
+ 
+    margin-top: 0;
+ 
+    margin-right: $dropdown-spacer;
+ 
+  }
+ 
+
+ 
+  .dropdown-toggle {
+ 
+    @include caret(left);
+ 
+    &::before {
+ 
+      vertical-align: 0;
+ 
+    }
+ 
+  }
+ 
+}
+ 
+
+ 
+// Dividers (basically an `<hr>`) within the dropdown
+ 
+.dropdown-divider {
+ 
+  @include nav-divider($dropdown-divider-bg);
+ 
+}
+ 
+
+ 
+// Links, buttons, and more within the dropdown menu
+ 
+//
+ 
+// `<button>`-specific styles are denoted with `// For <button>s`
+ 
+.dropdown-item {
+ 
+  display: block;
+ 
+  width: 100%; // For `<button>`s
+ 
+  padding: $dropdown-item-padding-y $dropdown-item-padding-x;
+ 
+  clear: both;
+ 
+  font-weight: $font-weight-normal;
+ 
+  color: $dropdown-link-color;
+ 
+  text-align: inherit; // For `<button>`s
+ 
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+ 
+  background-color: transparent; // For `<button>`s
+ 
+  border: 0; // For `<button>`s
+ 
+
+ 
+  @include hover-focus {
+ 
+    color: $dropdown-link-hover-color;
+ 
+    text-decoration: none;
+ 
+    @include gradient-bg($dropdown-link-hover-bg);
+ 
+  }
+ 
+
+ 
+  &.active,
+ 
+  &:active {
+ 
+    color: $dropdown-link-active-color;
+ 
+    text-decoration: none;
+ 
+    @include gradient-bg($dropdown-link-active-bg);
+ 
+  }
+ 
+
+ 
+  &.disabled,
+ 
+  &:disabled {
+ 
+    color: $dropdown-link-disabled-color;
+ 
+    background-color: transparent;
+ 
+    // Remove CSS gradients if they're enabled
+ 
+    @if $enable-gradients {
+ 
+      background-image: none;
+ 
+    }
+ 
+  }
+ 
+}
+ 
+
+ 
+.dropdown-menu.show {
+ 
+  display: block;
+ 
+}
+ 
+
+ 
+// Dropdown section headers
+ 
+.dropdown-header {
+ 
+  display: block;
+ 
+  padding: $dropdown-padding-y $dropdown-item-padding-x;
+ 
+  margin-bottom: 0; // for use with heading elements
+ 
+  font-size: $font-size-sm;
+ 
+  color: $dropdown-header-color;
+ 
+  white-space: nowrap; // as with > li > a
+ 
+}
+ 
+
+ 
+
+ 
+  </style>
+ 
+    <!-- Latest compiled and minified CSS -->
+ 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+
+ 
+    <!-- jQuery library -->
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+
+ 
+    <!-- Latest compiled JavaScript -->
+ 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+    <link href="bootstrap.css" rel="stylesheet">
+ 
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+ 
+      <a class="navbar-brand" href="#">Expand at sm</a>
+ 
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+ 
+        <span class="navbar-toggler-icon"></span>
+ 
+      </button>
+ 
+
+ 
+      <div class="collapse navbar-collapse" id="navbarsExample03">
+ 
+        <ul class="navbar-nav mr-auto">
+ 
+          <li class="nav-item active">
+ 
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+ 
+          </li>
+ 
+          <li class="nav-item">
+ 
+            <a class="nav-link" href="#">Link</a>
+ 
+          </li>
+ 
+          <li class="nav-item">
+ 
+            <a class="nav-link disabled" href="#">Disabled</a>
+ 
+          </li>
+ 
+          <li class="nav-item dropdown">
+ 
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+ 
+            <div class="dropdown-menu" aria-labelledby="dropdown03">
+ 
+              <a class="dropdown-item" href="#">Action</a>
+ 
+              <a class="dropdown-item" href="#">Another action</a>
+ 
+              <a class="dropdown-item" href="#">Something else here</a>
+ 
+            </div>
+ 
+          </li>
+ 
+        </ul>
+ 
+        <form class="form-inline my-2 my-md-0">
+ 
+          <input class="form-control" type="text" placeholder="Search">
+ 
+        </form>
+ 
+      </div>
+ 
+    </nav>
+ 
+    <title>LSU HTML</title>
+ 
+    <style type="text/css">
+ 
+      h1 {
+ 
+        color:Darkgreen;
+ 
+      }
+ 
+      h2 {
+ 
+        color:Darkgreen;
+ 
+      }
+ 
+      #opening strong {
+ 
+        font-size: 1.5em;
+ 
+        text-decoration: underline;
+ 
+      }
+ 
+      #opening em {
+ 
+        font-size: 1.5em;
+ 
+        text-decoration: underline;
+ 
+      }
+ 
+      #list1 {
+ 
+        color: red;
+ 
+        line-height: 2em;
+ 
+      }
+ 
+      #list2 {
+ 
+        color: red;
+ 
+        line-height: 2em;
+ 
+      }
+ 
+      .unstartedName {
+ 
+        color: blue;
+ 
+        text-align: center;
+ 
+      }
+ 
+      .inProgressName {
+ 
+        color: purple;
+ 
+        text-align: center;
+ 
+      }
+ 
+      .signUp {
+ 
+        color: darkred;
+ 
+        font-weight: bold;
+ 
+      }
+ 
+      #nameBox, #emailBox {
+ 
+        background-color: lightblue;
+ 
+      }
+ 
+      #closing {
+ 
+        font-weight: bold;
+ 
+      }
+ 
+      #twitter {
+ 
+        color: lightblue;
+ 
+      }
+ 
+    </style>
+ 
+
+ 
+ 
+ 
+ 
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+  <title>jQuery UI Dialog - Modal form</title>
+ 
+  <link rel="stylesheet" href="jquery-ui.css">
+ 
+  <link rel="stylesheet" href="jquery-ui.min.css">
+ 
+  <link rel="stylesheet" href="dialoguetheme.css">
+ 
+  <style>
+ 
+    label, input { display:block; }
+ 
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+ 
+    fieldset { padding:0; border:0; margin-top:25px; }
+ 
+    h1 { font-size: 1.2em; margin: .6em 0; }
+ 
+    div#users-contain { width: 350px; margin: 20px 0; }
+ 
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+ 
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+ 
+    .ui-dialog .ui-state-error { padding: .3em; }
+ 
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+ 
+  </style>
+ 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ 
+  
+ 
+  <script>
+ 
+  $( function() {
+ 
+    var dialog, form,
+ 
+ 
+ 
+      
+ 
+      taskName = $( "#taskName" ),
+ 
+      priorityLevel = $( "#priorityLevel" ),
+ 
+      assignedTo = $( "#assignedTo" ),
+ 
+      allFields = $( [] ).add( taskName ).add( priorityLevel ).add( assignedTo ),
+ 
+      tips = $( ".validateTips" );
+ 
+ 
+ 
+    function updateTips( t ) {
+ 
+      tips
+ 
+        .text( t )
+ 
+        .addClass( "ui-state-highlight" );
+ 
+      setTimeout(function() {
+ 
+        tips.removeClass( "ui-state-highlight", 1500 );
+ 
+      }, 500 );
+ 
+    }
+ 
+ 
+ 
+    function checkLength( o, n, min, max ) {
+ 
+      if ( o.val().length > max || o.val().length < min ) {
+ 
+        o.addClass( "ui-state-error" );
+ 
+        updateTips( "Length of " + n + " must be between " +
+ 
+          min + " and " + max + " characters." );
+ 
+        return false;
+ 
+      } else {
+ 
+        return true;
+ 
+      }
+ 
+    }
+ 
+ 
+ 
+    function checkRegexp( o, regexp, n ) {
+ 
+      if ( !( regexp.test( o.val() ) ) ) {
+ 
+        o.addClass( "ui-state-error" );
+ 
+        updateTips( n );
+ 
+        return false;
+ 
+      } else {
+ 
+        return true;
+ 
+      }
+ 
+    }
+ 
+ 
+ 
+    function addUser() {
+ 
+      var valid = true;
+ 
+      allFields.removeClass( "ui-state-error" );
+ 
+ 
+ 
+      valid = valid && checkLength( taskName, "task name", 1, 30 );
+ 
+      valid = valid && checkLength( priorityLevel, "priority level", 1, 2 );
+ 
+      valid = valid && checkLength( assignedTo, "worker's name(s)", 1, 30 );
+ 
+ 
+ 
+      valid = valid && checkRegexp( taskName, /([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+ 
+      valid = valid && checkRegexp( priorityLevel, /([0-9])+$/i, "Priority level must be an integer from 1 to 99" );
+ 
+      valid = valid && checkRegexp( assignedTo, /([0-9a-z_\s])+$/i, "Name of worker task is assigned to. field may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+ 
+ 
+ 
+      if ( valid ) {
+ 
+        $( "#users tbody" ).append( "<tr>" +
+ 
+          "<td>" + taskName.val() + "</td>" +
+ 
+          "<td>" + priorityLevel.val() + "</td>" +
+ 
+          "<td>" + assignedTo.val() + "</td>" +
+ 
+        "</tr>" );
+ 
+        dialog.dialog( "close" );
+ 
+      }
+ 
+      return valid;
+ 
+    }
+ 
+  
+ 
+  
+ 
+
+ 
+  
+ 
+  function createTask() {
+ 
+    addUser();
+ 
+    <!-- log(taskCreated(); -->
+ 
+    <!-- writetodatabase(taskName, priorityLevel, assignedTo); -->
+ 
+  }
+ 
+  
+ 
+    dialog = $( "#dialog-form" ).dialog({
+ 
+      autoOpen: false,
+ 
+      height: 400,
+ 
+      width: 350,
+ 
+      modal: true,
+ 
+      buttons: {
+ 
+        "Create a task": createTask,
+ 
+        Cancel: function() {
+ 
+          dialog.dialog( "close" );
+ 
+        }
+ 
+      },
+ 
+      close: function() {
+ 
+        form[ 0 ].reset();
+ 
+        allFields.removeClass( "ui-state-error" );
+ 
+      }
+ 
+    });
+ 
+ 
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+ 
+      event.preventDefault();
+ 
+      addUser();
+ 
+    });
+ 
+ 
+ 
+    $( "#create-user" ).button().on( "click", function() {
+ 
+      dialog.dialog( "open" );
+ 
+    });
+ 
+  } );
+ 
+  </script>
+ 
+  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  </head>
+ 
+  <body>
+ 
+    <!-- Opening Paragraph and basic information text -->
+ 
+    <img src="http://www.lsu.edu/stratcomm/online-brand-guide/images/LSU_Purple_RGB.png" alt="LsuLogo" height="100">
+ 
+    <h1>Collabify</h1>
+ 
+    <p id="opening">Welcome to <strong>Collabify's HTML practice page</strong>. Dang son, <em>this text is italiziced</em>.</p>
+ 
+
+ 
+    <h2>This is a list with links</h2>
+ 
+    <ul><!-- Location information list -->
+ 
+      <li>USA</li>
+ 
+        <ul id="list1">
+ 
+          <li><a href="https://en.wikipedia.org/wiki/New_York_(state)">New York</a></li>
+ 
+          <li><a href="https://en.wikipedia.org/wiki/Columbus,_Ohio">Columbus</a></li>
+ 
+          <li><a href="https://en.wikipedia.org/wiki/Austin,_Texas">Austin</a></li>
+ 
+          <li><a href="https://en.wikipedia.org/wiki/Philadelphia">Philly</a></li>
+ 
+        </ul>
+ 
+      <li>World</li>
+ 
+        <ul id="list2">
+ 
+          <li><a href="https://en.wikipedia.org/wiki/Ottawa">Ottawa</a></li>
+ 
+          <li><a href="https://en.wikipedia.org/wiki/Sydney">Sydney</a></li>
+ 
+        </ul>
+ 
+    </ul>
+ 
+
+ 
+    <!-- Upcoming classes table -->
+ 
+    <h2>This is a ticc table</h2>
+ 
+      <table border="5">
+ 
+      <thead>
+ 
+        <tr>
+ 
+          <th>Unstarted</th>
+ 
+          <th>In Progress</th>
+ 
+        </tr>
+ 
+      <tbody>
+ 
+        <tr>
+ 
+          <td class="unstartedName">The Board</td>
+ 
+          <td class="inProgressName">JavaScript & CSS</td>
+ 
+        </tr>
+ 
+        <tr>
+ 
+          <td class="unstartedName">The Website</td>
+ 
+          <td class="inProgressName">Servers</td>
+ 
+        </tr>
+ 
+      </table>
+ 
+    
+ 
+    <!-- User information buttons -->
+ 
+    <h2>These are inputs and labels!</h2>
+ 
+    <label class="signUp">Name Here Yo: <input id="nameBox" type="text" name="name"></label><br>
+ 
+    <label class="signUp">Email in this: <input  id="emailBox" type="text" name="email"></label><br>
+ 
+    <label class="signUp">Location<select name="location" id="location">
+ 
+      <option value="here">here</option>
+ 
+      <option value="there">there</option>
+ 
+    </select></label><br>
+ 
+    <fieldset class="signUp">
+ 
+      <legend>Gender:</legend>
+ 
+      <label>Female <input type="radio" name="female" id="female" value="female"></label>
+ 
+      <label>Male <input type="radio" name="male" id="male" value="male"></label>
+ 
+      <label>Attack Helicopter <input type="radio" name="apache" id="apache" value="apache"></label>
+ 
+    </fieldset><br>
+ 
+    <label class="signUp">This is a text box: <br><textarea name="experiance"></textarea></label><br>
+ 
+
+ 
+    <h1>Fun-ctions!</h1>
+ 
+    
+ 
+    
+ 
+    <div id="dialog-form" title="Create new task">
+ 
+  <p class="validateTips">All form fields are required.</p>
+ 
+ 
+ 
+  <form>
+ 
+    <fieldset>
+ 
+      <label for="taskName">Task Name</label>
+ 
+      <input type="text" name="taskName" id="taskName" value="My task" class="text ui-widget-content ui-corner-all">
+ 
+      <label for="priorityLevel">Priority Level</label>
+ 
+      <input type="text" name="priorityLevel" id="priorityLevel" value="High" class="text ui-widget-content ui-corner-all">
+ 
+      <label for="assignedTo">Assigned to</label>
+ 
+      <input type="text" name="assignedTo" id="assignedTo" value="Worker" class="text ui-widget-content ui-corner-all">
+ 
+ 
+ 
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+ 
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+ 
+    </fieldset>
+ 
+  </form>
+ 
+</div>
+ 
+ 
+ 
+ 
+ 
+<div id="users-contain" class="ui-widget">
+ 
+  <h1>Existing Tasks:</h1>
+ 
+  <table id="users" class="ui-widget ui-widget-content" >
+ 
+    <thead>
+ 
+      <tr class="ui-widget-header">
+ 
+        <th>Task Name</th>
+ 
+        <th>Priority Level</th>
+ 
+        <th>Assigned To</th>
+ 
+      </tr>
+ 
+    </thead>
+ 
+    <tbody>
+ 
+      <tr>
+ 
+        <td>My first task</td>
+ 
+        <td>HIGHHHHH</td>
+ 
+        <td>Me</td>
+ 
+      </tr>
+ 
+    </tbody>
+ 
+  </table>
+ 
+</div>
+ 
+<button id="create-user">Create new task</button>
+ 
+
+ 
+
+ 
+    <h2>These are embeds</h2>
+ 
+    <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d101519.40696051813!2d30.36011998519771!3d59.93980562212261!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1517327110959" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+ 
+    <br>
+ 
+    <br>
+ 
+    <iframe width="640" height="360" src="https://www.youtube.com/embed/DYIxd4STIkA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+ 
+    <br>
+ 
+    <br>
+ 
+
+ 
+    <p>Links my man</p>
+ 
+    <p id="closing"><a href="https://twitter.com/?lang=en" id="twitter">   Twitter  | <a href="https://www.facebook.com/">  Facebook  | <a href="https://www.flickr.com/">  Flickr</p>
+ 
+  </body>
+ 
+</html>
