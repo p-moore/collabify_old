@@ -13,9 +13,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     // No user is signed in.
 	document.getElementById("logged_in_state").style.display = "none";
 	document.getElementById("logged_out_state").style.display = "initial";
+
   }
 });
 
+
+function register(){
+  var user = document.getElementById("SignUpEmail");
+  var password = document.getElementById("SignUpUserPassword");
+  firebase.auth().createUserWithEmailAndPassword(user, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+}
 
 function login(){
 
