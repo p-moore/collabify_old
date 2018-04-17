@@ -1,7 +1,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <style>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
     .divCatagory{
         width: 350px;
         height: 500px;
@@ -26,8 +32,9 @@
         width: 350px;
         height: 50px;
     }
-    </style>
+</style>
 
+<!-- Drag and Drop Scripts -->
 <script>
 function allowDrop(ev) {
     ev.preventDefault();
@@ -43,7 +50,130 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 </script>
+
+<!-- Create New Task Display Scripts -->
+<script> 
+  $( function() {
+ 
+    var dialog, 
+      form,
+      taskName = $( "#taskName" ),
+      priorityLevel = $( "#priorityLevel" ),
+      assignedTo = $( "#assignedTo" ),
+      allFields = $( [] ).add( taskName ).add( priorityLevel ).add( assignedTo ),
+      tips = $( ".validateTips" );
+ 
+    function updateTips( t ) { 
+        tips.text( t ).addClass( "ui-state-highlight" );
+        setTimeout(function() {
+        tips.removeClass( "ui-state-highlight", 1500 );
+      }, 500 );
+    }
+ 
+    function checkLength( o, n, min, max ) {
+      if ( o.val().length > max || o.val().length < min ) {
+        o.addClass( "ui-state-error" );
+        updateTips( "Length of " + n + " must be between " +
+          min + " and " + max + " characters." );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+    function checkRegexp( o, regexp, n ) {
+      if ( !( regexp.test( o.val() ) ) ) {
+        o.addClass( "ui-state-error" );
+        updateTips( n );
+        return false;
+      } else {
+        return true;
+      }
+    }
+ 
+ 
+    function addUser() {
+      var valid = true;
+      allFields.removeClass( "ui-state-error" );
+      valid = valid && checkLength( taskName, "task name", 1, 30 );
+      valid = valid && checkLength( priorityLevel, "priority level", 1, 2 );
+      valid = valid && checkLength( assignedTo, "worker's name(s)", 1, 30 );
+      valid = valid && checkRegexp( taskName, /([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+      valid = valid && checkRegexp( priorityLevel, /([0-9])+$/i, "Priority level must be an integer from 1 to 99" );
+      valid = valid && checkRegexp( assignedTo, /([0-9a-z_\s])+$/i, "Name of worker task is assigned to. field may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
+ 
+      if ( valid ) {
+        $( "#users tbody" ).append( "<tr>" +
+           "<td>" + taskName.val() + "</td>" +
+          "<td>" + priorityLevel.val() + "</td>" +
+          "<td>" + assignedTo.val() + "</td>" +
+        "</tr>" );
+ 
+        dialog.dialog( "close" );
+      }
+ 
+      return valid;
+  }
+ 
+  
+ 
+  
+ 
+
+ 
+  
+ 
+  function createTask() {
+ 
+    addUser();
+ 
+    <!-- log(taskCreated(); -->
+ 
+    <!-- writetodatabase(taskName, priorityLevel, assignedTo); -->
+ 
+  }
+ 
+  
+ 
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 400,
+      width: 350,
+      modal: true,
+
+    buttons: { "Create a task": createTask, Cancel: function() {
+            dialog.dialog( "close" );
+        }
+    },
+ 
+    close: function() {
+ 
+        form[ 0 ].reset();
+ 
+        allFields.removeClass( "ui-state-error" );
+ 
+      }
+ 
+    });
+ 
+ 
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+ 
+ 
+ 
+    $( "#create-user" ).button().on( "click", function() {
+      dialog.dialog( "open" );
+    });
+ 
+  });
+ 
+  </script>
+ 
 </head>
+
 <body>
 <div style="width: 100%; overflow: hidden;">	
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
@@ -63,6 +193,29 @@ function drop(ev) {
     </div>
 </div>
 <br>
+
+<!-- Task Creation Form -->
+<div id="dialog-form" title="Create new task"> 
+  <p class="validateTips">All form fields are required.</p>
+ 
+  <form>
+    <fieldset>
+      <label for="taskName">Task Name</label>
+      <input type="text" name="taskName" id="taskName" value="My task" class="text ui-widget-content ui-corner-all">
+ 
+      <label for="priorityLevel">Priority Level</label>
+      <input type="text" name="priorityLevel" id="priorityLevel" value="High" class="text ui-widget-content ui-corner-all">
+ 
+      <label for="assignedTo">Assigned to</label>
+      <input type="text" name="assignedTo" id="assignedTo" value="Worker" class="text ui-widget-content ui-corner-all">
+ 
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+    </fieldset>
+  </form>
+</div>
+ 
+<button id="create-user">Create new task</button>
 
 <div id="drag2" class="task" draggable="true" ondragstart="drag(event)"></div>
 
