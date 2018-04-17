@@ -5,13 +5,13 @@ const HighPrioTask = {
 	}
 };
 
-const GeneralTask = {
+const LowPrioTask = {
 	displayTask(){
 
 	}
 };
 
-const AssignedTask = {
+const MediumPrioTask = {
 	displayTask(){
 
 	}
@@ -22,10 +22,10 @@ function HighPrioTaskMachine(){
 	return Object.create(HighPrioTask);
 }
 
-function GeneralTaskMachine(){
-	return Object.create(GeneralTask);
+function MediumPrioTaskMachine(){
+	return Object.create(MediumPrioTask);
 }
 
-function AssignedTaskMachine(){
-	return Object.create(AssignedTask);
+function LowPrioTaskMachine(){
+	return Object.create(LowPrioTask);
 }
