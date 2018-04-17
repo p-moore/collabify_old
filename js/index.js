@@ -18,17 +18,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 
-function register(){
-  var user = document.getElementById("SignUpEmail");
-  var password = document.getElementById("SignUpUserPassword");
-  firebase.auth().createUserWithEmailAndPassword(user, password).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // ...
-});
-}
-
 function login(){
 
 var username = document.getElementById("email_field").value;
