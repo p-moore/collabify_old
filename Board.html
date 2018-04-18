@@ -16,15 +16,33 @@
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel="stylesheet" href="css/dialoguetheme.css">
 <style>
-    label, input { display:block; }
-    input.text { margin-bottom:12px; width:95%; padding: .4em; }
-    fieldset { padding:0; border:0; margin-top:25px; }
-    h1 { font-size: 1.2em; margin: .6em 0; }
-    div#users-contain { width: 350px; margin: 20px 0; }
-    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-    .ui-dialog .ui-state-error { padding: .3em; }
-    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+    label, input { 
+      display:block; 
+    }
+    input.text { 
+      margin-bottom:12px; width:95%; padding: .4em; 
+    }
+    fieldset { 
+      padding:0; border:0; margin-top:25px; 
+    }
+    h1 { 
+      font-size: 1.2em; margin: .6em 0; 
+    }
+    div#users-contain { 
+      width: 350px; margin: 20px 0; 
+    }
+    div#users-contain table { 
+      margin: 1em 0; border-collapse: collapse; width: 100%; 
+    }
+    div#users-contain table td, div#users-contain table th { 
+      border: 1px solid #eee; padding: .6em 10px; text-align: left; 
+    }
+    .ui-dialog .ui-state-error { 
+      padding: .3em; 
+    }
+    .validateTips { 
+      border: 1px solid transparent; padding: 0.3em;
+    }
 </style>
 
 <!-- Task Factory methods -->
@@ -74,7 +92,7 @@ function drop(ev) {
 }
 </script>
 
-<!-- Create New Task Display Scripts -->
+<!-- Create New Task Scripts -->
 <script> 
   $( function() {
  
@@ -98,8 +116,8 @@ function drop(ev) {
     function updateTips( t ) { 
         tips.text( t ).addClass( "ui-state-highlight" );
         setTimeout(function() {
-        tips.removeClass( "ui-state-highlight", 1500 );
-      }, 500 );
+          tips.removeClass( "ui-state-highlight", 1500 );
+        }, 500 );
     }
  
     function checkLength( o, n, min, max ) {
@@ -137,7 +155,7 @@ function drop(ev) {
       var valid = true;
       allFields.removeClass( "ui-state-error" );
       valid = valid && checkLength( name, "task name", 1, 30 );
-      valid = valid && checkLength( percentage, "percentageDone", 1, 3 );
+      valid = valid && checkLength( percentage, "percentage", 1, 3 );
       valid = valid && checkLength( assigned, "worker's name(s)", 1, 30 );
       valid = valid && checkRegexp( name, /([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       valid = valid && checkRegexp( percentage, /([0-9])+$/i, "Starting Perent must be an integer from 1 to 100" );
@@ -161,7 +179,6 @@ function drop(ev) {
  
         dialog.dialog( "close" );
       }
- 
       return valid;
   }
  
