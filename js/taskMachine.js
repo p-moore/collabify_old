@@ -1,19 +1,19 @@
 //Concrete Products
 const HighPrioTask = {
 	displayTask(){
-
+		console.log("HELLO");
 	}
 };
 
 const LowPrioTask = {
 	displayTask(){
-
+		console.log("DAMN");
 	}
 };
 
 const MediumPrioTask = {
 	displayTask(){
-
+		console.log("SON");
 	}
 };
 
