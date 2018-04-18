@@ -7,6 +7,8 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+<!-- w3  Style sheets -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <!-- Bootstrap Stylesheet -->
 <link href="css/bootstrap.css" rel="stylesheet">
@@ -47,6 +49,9 @@
 
 <!-- Task Factory methods -->
 <script src="js/taskMachine.js"></script>
+
+<!-- Task methods -->
+<script src="js/task.js"></script>
 
 <style>
     .divCatagory{
@@ -170,13 +175,9 @@ function drop(ev) {
         } else {
             var newTask = HighPrioTaskMachine();
         }
+  
+        newTask.display();
 
-
-        newTask.taskName = name.val();
-        newTask.priorityLevel = priority;
-        newTask.percentDone = percentage.val();
-        newTask.assignedTo = assigned.val();
- 
         dialog.dialog( "close" );
       }
       return valid;
@@ -234,10 +235,10 @@ function drop(ev) {
 <br>
 
 <!-- Task Creation Form -->
-<div id="dialog-form" title="Create new task"> 
+<div id="dialog-form" title="Create a New Task"> 
   <p class="validateTips">All form fields are required.</p>
  
-  <form>
+  <form >
     <fieldset>
       <label for="taskName">Task Name</label>
       <input type="text" name="taskName" id="taskName" value="New Task" class="text ui-widget-content ui-corner-all">
@@ -272,7 +273,24 @@ function drop(ev) {
  
 <button id="create-user">Create new task</button>
 
-<div id="drag2" class="task" draggable="true" ondragstart="drag(event)"></div>
+<div class="w3-card-4 LowPrioityTask" id="drag2" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-blue">
+    <h1>Task Name</h1>
+  </header>
+  <div class="w3-container">
+    <div class="w3-light-grey w3-round">
+      <div class="w3-container w3-round w3-green w3-center" id="myBar" style="width:12%">12%</div>
+      <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+    </div>
+  </div>
+  <footer class="w3-container w3-blue">
+    <h5>worker</h5>
+  </footer>
+</div>
+
+
+<button class="w3-button w3-green w3-margin-top" onclick='$( ".LowPrioityTask" ).appendTo( "#clonehere")'>Copy Task</button> 
+<div id="clonehere"></div>
 
 </body>
 </html>
