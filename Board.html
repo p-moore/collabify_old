@@ -61,6 +61,12 @@
         float: left;
         border: 1px solid black;
     }
+    #clonehere{
+        width: 350px;
+        height: 500px;
+        padding: 10px;
+        float: left;
+    }
     .divCatagoryHead{
         width: 350px;
         height: 20px;
@@ -95,6 +101,8 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
 }
+
+
 </script>
 
 <!-- Create New Task Scripts -->
@@ -273,24 +281,57 @@ function drop(ev) {
  
 <button id="create-user">Create new task</button>
 
-<div class="w3-card-4 LowPrioityTask" id="drag2" draggable="true" ondragstart="drag(event)">
+<!-- Low Prio Task Demo -->
+<div class="w3-card-4 LowPrioityTask" id="dragL0" draggable="true" ondragstart="drag(event)">
   <header class="w3-container w3-blue">
     <h1>Task Name</h1>
   </header>
   <div class="w3-container">
     <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-green w3-center" id="myBar" style="width:12%">12%</div>
-      <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
-    </div>
+      <div class="w3-container w3-round w3-light-blue w3-center" id="myBar" style="width:12%">12%</div>
+    </div> 
+    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
   </div>
   <footer class="w3-container w3-blue">
     <h5>worker</h5>
   </footer>
 </div>
 
+<!-- Medium Prio Task Demo -->
+<div class="w3-card-4 MediumPrioityTask" id="drag3" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-yellow">
+    <h1>Task Name</h1>
+  </header>
+  <div class="w3-container">
+    <div class="w3-light-grey w3-round">
+      <div class="w3-container w3-round w3-khaki w3-center" id="myBar" style="width:12%">12%</div>
+    </div> 
+    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+  </div>
+  <footer class="w3-container w3-yellow">
+    <h5>worker</h5>
+  </footer>
+</div>
 
-<button class="w3-button w3-green w3-margin-top" onclick='$( ".LowPrioityTask" ).appendTo( "#clonehere")'>Copy Task</button> 
+<!-- High Prio Task Demo -->
+<div class="w3-card-4 HighPrioityTask" id="drag4" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-red">
+    <h1>Task Name</h1>
+  </header>
+  <div class="w3-container">
+    <div class="w3-light-grey w3-round">
+      <div class="w3-container w3-round w3-pink w3-center" id="myBar" style="width:12%">12%</div>
+    </div> 
+    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+  </div>
+  <footer class="w3-container w3-red">
+    <h5>worker</h5>
+  </footer>
+</div>
+
 <div id="clonehere"></div>
+
+    <button class="w3-button w3-green w3-margin-top" onclick="LowPrioTaskMachine()">Complete</button> 
 
 </body>
 </html>
