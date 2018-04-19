@@ -1,6 +1,6 @@
-var myLowTasks = [];
-var myMediumTasks = [];
-var myHighTasks = [];
+var myLowTasks = new Array();
+var myMediumTasks = new Array();
+var myHighTasks = new Array();
 
 var task ={
   name: "taskName",
@@ -22,14 +22,13 @@ function Task(name, percent, prio, assigned){
   this.catagory = null;
   this.id = 1;
   
-  /*if(prio == 0){
+  if(prio == 0){
     myLowTasks.push(this);
-
   } else if (prio == 1) {
     myMediumTasks.push(this);
   } else {
     myHighTasks.push(this);
-  }*/
+  }
 }
 
 
