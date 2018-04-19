@@ -2,6 +2,8 @@ var myLowTasks = new Array();
 var myMediumTasks = new Array();
 var myHighTasks = new Array();
 
+var totalTasksMade = 0;
+
 var task ={
   name: "taskName",
   percentage: 0,
