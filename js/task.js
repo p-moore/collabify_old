@@ -1,22 +1,35 @@
+var myLowTasks = [];
+var myMediumTasks = [];
+var myHighTasks = [];
+
 var task ={
-  name: taskName,
+  name: "taskName",
   percentage: 0,
   priority: 0,
-  assigned: worker,
+  assigned: "worker",
   id: 0,
   date: 000000,
-  catagory: null;
-} 
+  catagory: null
+} ;
 
-function createTask(name, percent, prio, assigned){
-  new task;
-  task.name = name;
-  task.percentage = precent;
-  task.priority = prio;
-  task.assigned = assigned;
-  date = Date.now();
+function Task(name, percent, prio, assigned){
+  this.name = name;
+  this.percentage = percent;
+  this.priority = prio;
+  this.assigned = assigned;
+  this.date = Date.now();
 
-  id = 1;
+  this.catagory = null;
+  this.id = 1;
+  
+  /*if(prio == 0){
+    myLowTasks.push(this);
+
+  } else if (prio == 1) {
+    myMediumTasks.push(this);
+  } else {
+    myHighTasks.push(this);
+  }*/
 }
 
 

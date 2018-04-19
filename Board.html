@@ -107,6 +107,8 @@ function drop(ev) {
 
 <!-- Create New Task Scripts -->
 <script> 
+
+
   $( function() {
  
     var dialog, 
@@ -173,7 +175,7 @@ function drop(ev) {
       valid = valid && checkRegexp( name, /([0-9a-z_\s])+$/i, "Task name may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
       valid = valid && checkRegexp( percentage, /([0-9])+$/i, "Starting Perent must be an integer from 1 to 100" );
       valid = valid && checkRegexp( assigned, /([0-9a-z_\s])+$/i, "Name of worker task is assigned to. field may consist of a-z, 0-9, underscores, spaces and must begin with a letter." );
- 
+
       if ( valid ) {
 
         if(priority == 0){
@@ -184,7 +186,12 @@ function drop(ev) {
             var newTask = HighPrioTaskMachine();
         }
   
-        newTask.display();
+        var letsLose = new Task(name.val(), percentage.val(), priority, assigned.val());
+
+        console.log(letsLose.name);
+        console.log(letsLose.percentage);
+        console.log(letsLose.priority);
+        console.log(letsLose.assigned);
 
         dialog.dialog( "close" );
       }
