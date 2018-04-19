@@ -156,7 +156,23 @@ function drop(ev) {
       }
     }
  
- 
+    function addTask() {
+                var createdTask = new Task(name.val(), percentage.val(), priority, assigned.val());
+
+        if(priority == 0){
+            var newTask = LowPrioTaskMachine(createdTask.id);
+            displayLowTask(createdTask);
+        } else if (priority == 1) {
+            var newTask = MediumPrioTaskMachine(createdTask.id);
+            displayMediumTask(createdTask);
+        } else {
+            var newTask = HighPrioTaskMachine(createdTask.id);
+            displayHighTask(createdTask);
+        }
+  
+        console.log(createdTask.id);
+
+    }
     function createTask() {
 
       var radios = document.getElementsByName('priorityLevel');
@@ -178,20 +194,21 @@ function drop(ev) {
 
       if ( valid ) {
 
+        var createdTask = new Task(name.val(), percentage.val(), priority, assigned.val());
+
         if(priority == 0){
-            var newTask = LowPrioTaskMachine();
+            var newTask = LowPrioTaskMachine(createdTask.id);
+            displayLowTask(createdTask);
         } else if (priority == 1) {
-            var newTask = MediumPrioTaskMachine();
+            var newTask = MediumPrioTaskMachine(createdTask.id);
+            displayMediumTask(createdTask);
         } else {
-            var newTask = HighPrioTaskMachine();
+            var newTask = HighPrioTaskMachine(createdTask.id);
+            displayHighTask(createdTask);
         }
   
-        var letsLose = new Task(name.val(), percentage.val(), priority, assigned.val());
+        console.log(createdTask.id);
 
-        console.log(letsLose.name);
-        console.log(letsLose.percentage);
-        console.log(letsLose.priority);
-        console.log(letsLose.assigned);
 
         dialog.dialog( "close" );
       }
@@ -216,7 +233,7 @@ function drop(ev) {
   
     form = dialog.find( "form" ).on( "submit", function( event ) {
       event.preventDefault();
-      addUser();
+      addTask();
     });
  
     $( "#create-user" ).button().on( "click", function() {
@@ -290,55 +307,53 @@ function drop(ev) {
 
 <!-- Low Prio Task Demo -->
 <div class="w3-card-4 LowPrioityTask" id="dragL0" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-blue">
+  <header class="w3-container w3-blue" id="lowHeader">
     <h1>Task Name</h1>
   </header>
   <div class="w3-container">
     <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-light-blue w3-center" id="myBar" style="width:12%">12%</div>
+      <div class="w3-container w3-round w3-light-blue w3-center" id="lowBar" style="width:12%">12%</div>
     </div> 
     <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
   </div>
-  <footer class="w3-container w3-blue">
+  <footer class="w3-container w3-blue" id="lowFooter">
     <h5>worker</h5>
   </footer>
 </div>
 
 <!-- Medium Prio Task Demo -->
-<div class="w3-card-4 MediumPrioityTask" id="drag3" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-yellow">
+<div class="w3-card-4 MediumPrioityTask" id="dragM0" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-yellow" id="medHeader">
     <h1>Task Name</h1>
   </header>
   <div class="w3-container">
     <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-khaki w3-center" id="myBar" style="width:12%">12%</div>
+      <div class="w3-container w3-round w3-khaki w3-center" id="medBar" style="width:12%">12%</div>
     </div> 
     <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
   </div>
-  <footer class="w3-container w3-yellow">
+  <footer class="w3-container w3-yellow" id="medFooter">
     <h5>worker</h5>
   </footer>
 </div>
 
 <!-- High Prio Task Demo -->
-<div class="w3-card-4 HighPrioityTask" id="drag4" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-red">
+<div class="w3-card-4 HighPrioityTask" id="dragH0" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-red" id="highHeader">
     <h1>Task Name</h1>
   </header>
   <div class="w3-container">
     <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-pink w3-center" id="myBar" style="width:12%">12%</div>
+      <div class="w3-container w3-round w3-pink w3-center" id="highBar" style="width:12%">12%</div>
     </div> 
     <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
   </div>
-  <footer class="w3-container w3-red">
+  <footer class="w3-container w3-red" id="highFooter">
     <h5>worker</h5>
   </footer>
 </div>
 
 <div id="clonehere"></div>
-
-    <button class="w3-button w3-green w3-margin-top" onclick="LowPrioTaskMachine()">Complete</button> 
 
 </body>
 </html>

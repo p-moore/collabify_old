@@ -20,17 +20,57 @@ function Task(name, percent, prio, assigned){
   this.date = Date.now();
 
   this.catagory = null;
-  this.id = 1;
   
   if(prio == 0){
     myLowTasks.push(this);
+    this.id = "dragL" + myLowTasks.length;
   } else if (prio == 1) {
     myMediumTasks.push(this);
+    this.id = "dragM" + myMediumTasks.length;
   } else {
     myHighTasks.push(this);
+    this.id = "dragH" + myHighTasks.length;
   }
 }
 
+function displayLowTask(task){
+
+  var d = new Date(task.date);
+
+  $( "#" + task.id + " #lowHeader h1" )
+    .html(task.name);
+  $( "#" + task.id + " #lowBar" ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #lowBar" )
+    .html(task.percentage + "%");
+  $( "#" + task.id + " #lowFooter h5" )
+    .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
+ }
+
+function displayMediumTask(task){
+
+  var d = new Date(task.date);
+
+  $( "#" + task.id + " #medHeader h1" )
+    .html(task.name);
+  $( "#" + task.id + " #medBar" ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #medBar" )
+    .html(task.percentage + "%");
+  $( "#" + task.id + " #medFooter h5" )
+    .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
+ }
+
+ function displayHighTask(task){
+
+  var d = new Date(task.date);
+
+  $( "#" + task.id + " #highHeader h1" )
+    .html(task.name);
+  $( "#" + task.id + " #highBar" ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #highBar" )
+    .html(task.percentage + "%");
+  $( "#" + task.id + " #higFooter h5" )
+    .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
+ }
 
 function move() {
   var elem = document.getElementById("myBar");   
