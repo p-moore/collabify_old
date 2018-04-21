@@ -2,7 +2,9 @@ var myLowTasks = new Array();
 var myMediumTasks = new Array();
 var myHighTasks = new Array();
 
-var totalTasksMade = 0;
+var totalLowTasksMade = 1;
+var totalMedTasksMade = 1;
+var totalHighTasksMade = 1;
 
 var task ={
   name: "taskName",
@@ -25,13 +27,16 @@ function Task(name, percent, prio, assigned){
   
   if(prio == 0){
     myLowTasks.push(this);
-    this.id = "dragL" + myLowTasks.length;
+    this.id = "dragL" + totalLowTasksMade;
+	totalLowTasksMade++;
   } else if (prio == 1) {
     myMediumTasks.push(this);
-    this.id = "dragM" + myMediumTasks.length;
+    this.id = "dragM" + totalMedTasksMade;
+	totalMedTasksMade++;
   } else {
     myHighTasks.push(this);
-    this.id = "dragH" + myHighTasks.length;
+    this.id = "dragH" + totalHighTasksMade;
+	totalHighTasksMade++;
   }
 }
 

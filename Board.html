@@ -238,10 +238,10 @@ function drop(ev) {
     });
  
     $( "#create-user" ).button().on( "click", function() {
-      dialog.dialog( "open" );
+      dialog.dialog( "open" ); 
     });
- 
   });
+	function remove(id) { document.getElementById(id).parentElement.outerHTML = ""; }
  
 </script>
  
@@ -308,6 +308,7 @@ function drop(ev) {
 
 <!-- Low Prio Task Demo -->
 <div class="w3-card-4 LowPrioityTask" id="dragL0" draggable="true" ondragstart="drag(event)">
+ <button id="delete-low0" onclick="remove(this.id)">X</button>
   <header class="w3-container w3-blue" id="lowHeader">
     <h1>Task Name</h1>
   </header>
@@ -324,6 +325,7 @@ function drop(ev) {
 
 <!-- Medium Prio Task Demo -->
 <div class="w3-card-4 MediumPrioityTask" id="dragM0" draggable="true" ondragstart="drag(event)">
+ <button id="delete-med0" onclick="remove(this.id)">X</button>
   <header class="w3-container w3-yellow" id="medHeader">
     <h1>Task Name</h1>
   </header>
@@ -340,6 +342,7 @@ function drop(ev) {
 
 <!-- High Prio Task Demo -->
 <div class="w3-card-4 HighPrioityTask" id="dragH0" draggable="true" ondragstart="drag(event)">
+<button id="delete-high0" onclick="remove(this.id)">X</button>
   <header class="w3-container w3-red" id="highHeader">
     <h1>Task Name</h1>
   </header>
