@@ -88,6 +88,148 @@
 
 <!-- Drag and Drop Scripts -->
 <script>
+
+function show_hide(id) 
+	 {		
+		 if(id=="showLow0")
+		 {
+		    dv = document.getElementById("collapseLow0");
+		    ele = document.getElementById("showLow0");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		if(id=="showMed0")
+		 {
+		    dv = document.getElementById("collapseMed0");
+		    ele = document.getElementById("showMed0");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		 if(id=="showHigh0")
+		 {
+		    dv = document.getElementById("collapseHigh0");
+		    ele = document.getElementById("showHigh0");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		 if(id=="showLow1")
+		 {
+		    dv = document.getElementById("collapseLow1");
+		    ele = document.getElementById("showLow1");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		if(id=="showMed1")
+		 {
+		    dv = document.getElementById("collapseMed1");
+		    ele = document.getElementById("showMed1");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		 if(id=="showHigh1")
+		 {
+		    dv = document.getElementById("collapseHigh1");
+		    ele = document.getElementById("showHigh1");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		 if(id=="showLow2")
+		 {
+		    dv = document.getElementById("collapseLow2");
+		    ele = document.getElementById("showLow2");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		if(id=="showMed2")
+		 {
+		    dv = document.getElementById("collapseMed2");
+		    ele = document.getElementById("showMed2");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+		 if(id=="showHigh2")
+		 {
+		    dv = document.getElementById("collapseHigh2");
+		    ele = document.getElementById("showHigh2");
+		    if (dv.style.display ==  '')
+		    { 
+			   dv.style.display = 'none'; 
+			   ele.innerHTML = "Show";
+		    }
+		    else
+		    {
+			   dv.style.display = ''; 
+			   ele.innerHTML = "Hide";
+		    }
+		 }
+	 }
+
+
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -309,6 +451,10 @@ function drop(ev) {
 <!-- Low Prio Task Demo -->
 <div class="w3-card-4 LowPrioityTask" id="dragL0" draggable="true" ondragstart="drag(event)">
  <button id="delete-low0" onclick="remove(this.id)">X</button>
+ <div>
+	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showLow0">Show</a>
+</div>
+ <div id="collapseLow0" style="display:none;">
   <header class="w3-container w3-blue" id="lowHeader">
     <h1>Task Name</h1>
   </header>
@@ -321,11 +467,16 @@ function drop(ev) {
   <footer class="w3-container w3-blue" id="lowFooter">
     <h5>worker</h5>
   </footer>
+  </div>
 </div>
 
 <!-- Medium Prio Task Demo -->
 <div class="w3-card-4 MediumPrioityTask" id="dragM0" draggable="true" ondragstart="drag(event)">
  <button id="delete-med0" onclick="remove(this.id)">X</button>
+ <div>
+	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showMed0">Show</a>
+</div>
+ <div id="collapseMed0" style="display:none;">
   <header class="w3-container w3-yellow" id="medHeader">
     <h1>Task Name</h1>
   </header>
@@ -338,11 +489,16 @@ function drop(ev) {
   <footer class="w3-container w3-yellow" id="medFooter">
     <h5>worker</h5>
   </footer>
+  </div>
 </div>
 
 <!-- High Prio Task Demo -->
 <div class="w3-card-4 HighPrioityTask" id="dragH0" draggable="true" ondragstart="drag(event)">
 <button id="delete-high0" onclick="remove(this.id)">X</button>
+<div>
+	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showHigh0">Show</a>
+</div>
+<div id="collapseHigh0" style="display:none;">
   <header class="w3-container w3-red" id="highHeader">
     <h1>Task Name</h1>
   </header>
@@ -355,6 +511,7 @@ function drop(ev) {
   <footer class="w3-container w3-red" id="highFooter">
     <h5>worker</h5>
   </footer>
+  </div>
 </div>
 
 <div id="clonehere"></div>
