@@ -44,6 +44,10 @@ function displayLowTask(task){
 
   var d = new Date(task.date);
 
+  $( "#" + task.id + " #lowHeader button" ).attr("id", "deleteLow-"+task.id);
+  $( "#" + task.id + " #lowHeader a" ).attr("id", "showLow-"+task.id);
+  $( "#" + task.id + " #collapseLow0 div button" ).attr("id", "completeLow-"+task.id);
+
   $( "#" + task.id + " #lowHeader h1" )
     .html(task.name);
   $( "#" + task.id + " #lowBar" ).css({"width": parseInt(task.percentage) + "%"});
@@ -57,6 +61,10 @@ function displayMediumTask(task){
 
   var d = new Date(task.date);
 
+  $( "#" + task.id + " #medHeader button" ).attr("id", "deleteMed-"+task.id);
+  $( "#" + task.id + " #medHeader a" ).attr("id", "showMed-"+task.id);
+  $( "#" + task.id + " #collapseMed0 div button" ).attr("id", "completeMed-"+task.id);
+
   $( "#" + task.id + " #medHeader h1" )
     .html(task.name);
   $( "#" + task.id + " #medBar" ).css({"width": parseInt(task.percentage) + "%"});
@@ -69,6 +77,10 @@ function displayMediumTask(task){
  function displayHighTask(task){
 
   var d = new Date(task.date);
+
+  $( "#" + task.id + " #HighHeader button" ).attr("id", "deleteHigh-"+task.id);
+  $( "#" + task.id + " #HighHeader a" ).attr("id", "showHigh-"+task.id);
+  $( "#" + task.id + " #collapseHigh0 div button" ).attr("id", "completeHigh-"+task.id);
 
   $( "#" + task.id + " #highHeader h1" )
     .html(task.name);
