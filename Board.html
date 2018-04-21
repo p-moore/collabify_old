@@ -17,6 +17,27 @@
 <link rel="stylesheet" href="css/jquery-ui.css">
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel="stylesheet" href="css/dialoguetheme.css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
+
+
 <style>
     label, input { 
       display:block; 
@@ -68,8 +89,8 @@
         float: left;
     }
     .divCatagoryHead{
-        width: 350px;
-        height: 20px;
+        width: 325px;
+        height: 50px;
         background-color: black;
         display: block;
     }
@@ -84,6 +105,7 @@
         width: 350px;
         height: 50px;
     }
+	
 </style>
 
 <!-- Drag and Drop Scripts -->
@@ -390,22 +412,44 @@ function drop(ev) {
 </head>
 
 <body>
+
+<!--Navbar-->
+
+<div class = "container-fluid">
+	<nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
+		<ul class="nav navbar-nav">
+			<li class="active"><a href="index.html"><font color="white">Home</font></a></li>
+			<li><a href=""><font color="white">Profile</font></a></li>
+			<li><a href="about.html"><font color="white">About</font></a></li>
+		</ul>
+
+	<input type="text" placeholder="Search...">
+	</div>
+</div>
+<!-- /Navbar -->
+
+<br>
+
+<div class="container">
+
 <div style="width: 100%; overflow: hidden;">	
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">BackLog</p>
+        <div class="well divCatagoryHead">
+		
+            <p class="divCatagoryHeadParagraph" style="color:white; font-family: Arial, Helvetica, sans-serif; font-size:16px;"><strong>BackLog</strong></p>
         </div>
     </div>
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">In Progress</p>
+        <div class="well divCatagoryHead">
+            <p class="divCatagoryHeadParagraph" style="color:white; font-family: Arial, Helvetica, sans-serif; font-size:16px;"><strong>In Progress</strong></p>
         </div>
     </div>
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">Finished</p>
+        <div class="well divCatagoryHead">
+            <p class="divCatagoryHeadParagraph"style="color:white; font-family: Arial, Helvetica, sans-serif; font-size:16px;"><strong>Finished</strong></p>
         </div>
     </div>
+</div>
 </div>
 <br>
 
