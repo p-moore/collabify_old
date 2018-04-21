@@ -7,6 +7,7 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -116,30 +117,70 @@ body {
   margin: 15px;
 
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    /*padding: 0;*/
+    overflow: hidden;
 
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #111;
+}
+
+input[type=text] {
+    width: 225px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+
+}
+
+input[type=text]:focus {
+    
+}
 </style>
-</head>
 
 <body>
-
-
-</header>
 
 <!--Navbar-->
 
 <div class = "container-fluid">
-	<nav class="navbar sticky-top navbar-light" style="background-color: #e3f2fd;">
+	<nav class="navbar">
 		<ul class="nav navbar-nav">
-			<li class="active"><a href=""><font color="white">Home</font></a></li>
-			<li><a href=""><font color="white">Profile</font></a></li>
-			<li><a href="about.html"><font color="white">About</font></a></li>
-		</ul>
+			<li class="active"><a href="index.html"><font color="white">Home</font></a></li>
+			<li><a href="Profile.html"><font color="white">Profile</font></a></li>
+			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 
-	<input type="text" placeholder="Search...">
-	</div>
+		</ul>
+		<form>
+  			<input type="text" name="search" placeholder="Search..">
+			
+		</form>
+	</nav>
 </div>
 <!-- /Navbar -->
-
 
 <div class="container-fluid">
 
@@ -184,7 +225,7 @@ body {
 								<div class="form-login">
 								<h4><strong>Sign in</strong></h4>
 								<p> to continue to Collabify </p>
-								<input type="text" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
+								<input type="email" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
 								</br>
 								<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
 								</br>
