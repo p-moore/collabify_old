@@ -75,7 +75,7 @@ function displayMediumTask(task){
   $( "#" + task.id + " #highBar" ).css({"width": parseInt(task.percentage) + "%"});
   $( "#" + task.id + " #highBar" )
     .html(task.percentage + "%");
-  $( "#" + task.id + " #higFooter h5" )
+  $( "#" + task.id + " #highFooter h5" )
     .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
  }
 
