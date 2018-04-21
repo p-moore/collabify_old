@@ -1,100 +1,152 @@
 <!DOCTYPE html>
-<html lang ="en-US">
+<html>
 <head>
-<meta charset ="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-
-<!--homestyle.css file-->
-<link href="css/homestyle.css" rel="stylesheet">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<!-- Firebase back-end code -->
-
-<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
-	ul {
-    list-style-type: none;
-    margin: 0;
-    /*padding: 0;*/
-    overflow: hidden;
-
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
 }
 
-li {
-    float:left;
+.title {
+  color: grey;
+  font-size: 18px;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
 }
 
-li a:hover:not(.active) {
-    background-color: #111;
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
 }
 
-.active {
-    background-color: #111;
-}
-
-input[type=text] {
-    width: 225px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-
-}
-
-input[type=text]:focus {
-    
+button:hover, a:hover {
+  opacity: 0.7;
 }
 </style>
-
+</head>
 <body>
 
-<!--Navbar-->
 
-<div class = "container-fluid">
-	<nav class="navbar">
-		<ul class="nav navbar-nav">
-			<li><a href="index.html"><font color="white">Home</font></a></li>
-			<li class="active"><a href="Profile.html"><font color="white">Profile</font></a></li>
-			<li><a href="About.html"><font color="white">About</font></a></li>
+<h2 style="text-align:center">My Profile</h2>
 
-		</ul>
-		<form>
-  			<input type="text" name="search" placeholder="Search..">
-			
-		</form>
-	</nav>
+<div style="float:left; padding-left:10px;">
+	<div class="card">
+	  <img src="css/images/Rick.png" alt="Rick" style="width:100%">
+	  <h1>Rick Sanchez</h1>
+	  <p class="title">Scientist</p>
+	  <p>Harvard University</p>
+	  <div style="margin: 24px 0;">
+		<a href="#"><i class="fa fa-dribbble"></i></a> 
+		<a href="#"><i class="fa fa-twitter"></i></a>  
+		<a href="#"><i class="fa fa-linkedin"></i></a>  
+		<a href="#"><i class="fa fa-facebook"></i></a> 
+	 </div>
+	 <p><button>Rick @MultiverseEmail.com</button></p>
+	</div>
 </div>
-<!-- /Navbar -->
+
+<div class="container" style="float:right;">
+
+<div class="well">
+	<p style="font-size:20px;"><strong> Projects </strong></p>
+</div>
+
+<div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
+  <img class="card-img-top" src="css/images/file.png" style="height:125px; width:200px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project 1</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" align="left" style="width: 18rem; float:left;padding:5px;">
+  <img class="card-img-top" src="css/images/file.png" style="height:125px; width:200px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project 2</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" align="left" style="width: 18rem; float:left;padding:5px;">
+  <img class="card-img-top"src="css/images/file.png" style="height:125px; width:200px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project 3</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" align="left" style="width: 18rem; float:left;padding:5px;">
+  <img class="card-img-top" src="css/images/file.png" style="height:125px; width:200px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project 4</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+
+<div class="container" style="float:right">
+<br>
+
+<div class="well">
+	<p style="font-size:20px;"><strong> Contributions </strong></p>
+</div>
+
+<div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
+  <img class="card-img-top" src="css/images/contribution.png" style="height:100px; width:100px;"alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project Rhino</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
+  <img class="card-img-top" src="css/images/contribution.png" style="height:100px; width:100px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project Duck</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
+  <img class="card-img-top" src="css/images/contribution.png" style="height:100px; width:100px;"alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project RhinoDuck</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+<div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
+  <img class="card-img-top" src="css/images/contribution.png" style="height:100px; width:100px;" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Project DuckRhino</strong></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+</div>
+
+
 </body>
+</html>
