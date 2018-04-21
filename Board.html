@@ -90,9 +90,17 @@
 <script>
 
 function show_hide(id) {
-  var parsedShowID = id.slice(5);
-  console.log(parsedShowID);
+  var deletionCheck = id.slice(0,1);
 
+  if(deletionCheck == "d"){
+    var parsedShowID = id.slice(5);
+    console.log(parsedShowID);
+  } else {
+    var parsedShowID = id.slice(5);
+    console.log(parsedShowID);
+
+  }  
+    
   dv = document.getElementById("collapse" + parsedShowID);
   ele = document.getElementById(id);
 
@@ -263,7 +271,10 @@ function drop(ev) {
       dialog.dialog( "open" ); 
     });
   });
-	function remove(id) { document.getElementById(id).parentElement.outerHTML = ""; }
+
+	function remove(id) { 
+    document.getElementById(id).parentElement.outerHTML = ""; 
+  }
  
 </script>
  

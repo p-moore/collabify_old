@@ -104,8 +104,21 @@ function move(id) {
   var parsedIDNum = parsedID.slice(1);
 
   var elem = document.getElementById("Bardrag"+parsedID);
-  if(elem.textContent != "100%"){
+  if(elem.textContent != "100%" && elem.textContent != "0%"){
     var width = elem.textContent.slice(0,2); //starting width
+
+    var ids = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) { //ending width
+        clearInterval(ids);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
+    }
+  } else if (elem.textContent == "0%"){
+    var width = elem.textContent.slice(0,1); //starting width
 
     var ids = setInterval(frame, 10);
     function frame() {
