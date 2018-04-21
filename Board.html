@@ -281,22 +281,27 @@ function drop(ev) {
 </head>
 
 <body>
-<div style="width: 100%; overflow: hidden;">	
+<br>
+<div class="container">
+
+<div style="width:100%; overflow: hidden;">	
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">BackLog</p>
+        <div class="container bg-warning rounded">
+            <p class="divCatagoryHeadParagraph"><strong>BackLog</strong></p>
         </div>
     </div>
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">In Progress</p>
+        <div class="container bg-info rounded">
+            <p class="divCatagoryHeadParagraph"><strong>In Progress</strong></p>
         </div>
     </div>
 	<div class="divCatagory" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="divCatagoryHead">
-            <p class="divCatagoryHeadParagraph">Finished</p>
+        <div class="container bg-success rounded">
+            <p class="divCatagoryHeadParagraph"><strong>Finished</strong></p>
         </div>
     </div>
+</div>
+
 </div>
 <br>
 
@@ -306,52 +311,63 @@ function drop(ev) {
  
   <form >
     <fieldset>
-      <label for="taskName">Task Name</label>
-      <input type="text" name="taskName" id="taskName" value="New Task" class="text ui-widget-content ui-corner-all">
+      <label for="taskName"><strong>Task Name</strong></label>
+      <input type="text" required name="taskName" id="taskName" placeholder="eg: Refactor Code XYZ" class="text ui-widget-content ui-corner-all">
 
 
       <fieldset for="priorityLevel" id="priorityField" class="text ui-widget-content ui-corner-all">
-      <legend>Priority Level:</legend>
+      <p><strong>Priority Level:</strong></p>
          <label>High 
-            <input style="float: left;" type="radio" name="priorityLevel" id="priorityLevel" value="2"> 
+            <input style="float: left;" required type="radio" name="priorityLevel" id="priorityLevel" value="2"> 
          </label>
          <label>Medium 
-            <input style="float: left;" type="radio" name="priorityLevel" id="priorityLevel" value="1">
+            <input style="float: left;" required type="radio" name="priorityLevel" id="priorityLevel" value="1">
          </label>
          <label>Low 
-           <input style="float: left;" type="radio" name="priorityLevel" id="priorityLevel" value="0" checked>
+           <input style="float: left;" required  type="radio" name="priorityLevel" id="priorityLevel" value="0" checked>
          </label>
          <br>
       </fieldset>
 
-      <label for="percentageDone">Starting Percent</label>
-      <input type="text" name="percentageDone" id="percentageDone" value="0" class="text ui-widget-content ui-corner-all">
+      <label for="percentageDone"><strong>Starting Percent</strong></label>
+      <input type="text" required  name="percentageDone" id="percentageDone" placeholder="10" class="text ui-widget-content ui-corner-all">
  
     
-      <label for="assignedTo">Assigned to</label>
-      <input type="text" name="assignedTo" id="assignedTo" value="Worker" class="text ui-widget-content ui-corner-all">
+      <label for="assignedTo"><strong>Assigned to</strong></label>
+      <input type="text" required  name="assignedTo" id="assignedTo" placeholder="Bob" class="text ui-widget-content ui-corner-all">
  
       <!-- Allow form submission with keyboard without duplicating the dialog button -->
       <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
     </fieldset>
   </form>
 </div>
- 
-<button id="create-user">Create new task</button>
 
+<div class="container" align="center">
+<button id="create-user" class="btn btn-primary">Create new task</button>
+</div>
 <!-- Low Prio Task Demo -->
+
+
 <div class="w3-card-4 LowPrioityTask" style="display: none;" id="dragL0" draggable="true" ondragstart="drag(event)">
   <header class="w3-container w3-blue" id="lowHeader">
     <h1 style="display:inline;">Task Name</h1>
-    <button  style="float:right;" id="delete-low0" onclick="remove(this.id)">X</button>
+    <button  type="button" class="close" aria-label="Close" style="float:right;" id="delete-low0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer; text-decoration:underline; float: right;" id="showLow0">Hide</a>
   </header> 
   <div id="collapseLow0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
-        <div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
+	  <br>
+	  <br>
+        <p><strong>Progress:</strong></p>
+		<div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
-      <button class="w3-button w3-green w3-margin-top" onclick="move(this.id)">Complete</button> 
+	  <div class="container" align="center">
+		<br>
+			<button class="btn btn-dark rounded" onclick="move(this.id)">Complete</button> 
+		<br>
+		<br>
+		</div>
     </div>
     <footer class="w3-container w3-blue" id="lowFooter">
       <h5>worker</h5>
@@ -359,19 +375,27 @@ function drop(ev) {
   </div>
 </div>
 
+
 <!-- Medium Prio Task Demo -->
 <div class="w3-card-4 MediumPrioityTask" style="display: none;" id="dragM0" draggable="true" ondragstart="drag(event)">
   <header class="w3-container w3-yellow" id="medHeader">
     <h1 style="display:inline;">Task Name</h1>  
-    <button style="float:right;" id="delete-med0" onclick="remove(this.id)">X</button>
+    <button ype="button" class="close" aria-label="Close" style="float:right;" id="delete-med0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float:right;" id="showMed0">Hide</a> 
   </header> 
   <div id="collapseMed0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
+	  <br>
+	  <br>
+	  <p><strong>Progress:</strong></p>
         <div class="w3-container w3-round w3-khaki w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
-      <button class="w3-button w3-green w3-margin-top" onclick="move(this.id)">Complete</button> 
+	  <br>
+		
+      <button class="btn btn-dark rounded" onclick="move(this.id)">Complete</button> 
+	  <br>
+		<br>
     </div>
     <footer class="w3-container w3-yellow" id="medFooter">
       <h5>worker</h5>
@@ -383,15 +407,21 @@ function drop(ev) {
 <div class="w3-card-4 HighPrioityTask" style="display: none;" id="dragH0" draggable="true" ondragstart="drag(event)">
   <header class="w3-container w3-red" id="highHeader">
     <h1 style="display:inline;">Task Name</h1>
-    <button style="float:right;" id="delete-high0" onclick="remove(this.id)">X</button>
+    <button ype="button" class="close" aria-label="Close" style="float:right;" id="delete-high0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float: right;" id="showHigh0">Hide</a>
   </header>
   <div id="collapseHigh0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
+	  <br>
+	  <br>
+	  <p><strong>Progress:</strong></p>
         <div class="w3-container w3-round w3-pink w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
-      <button class="w3-button w3-green w3-margin-top" onclick="move(this.id)">Complete</button> 
+	  <br>
+      <button class="btn btn-dark rounded" onclick="move(this.id)">Complete</button> 
+	  <br>
+		<br>
     </div>
     <footer class="w3-container w3-red" id="highFooter">
       <h5>worker</h5>
