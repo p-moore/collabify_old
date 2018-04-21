@@ -273,7 +273,7 @@ function drop(ev) {
   });
 
 	function remove(id) { 
-    document.getElementById(id).parentElement.outerHTML = ""; 
+    document.getElementById(id).parentElement.parentElement.outerHTML = ""; 
   }
  
 </script>
@@ -344,9 +344,9 @@ function drop(ev) {
   <header class="w3-container w3-blue" id="lowHeader">
     <h1 style="display:inline;">Task Name</h1>
     <button  style="float:right;" id="delete-low0" onclick="remove(this.id)">X</button>
-    <a onclick="show_hide(this.id)" style="cursor:pointer; text-decoration:underline; float: right;" id="showLow0">Show</a>
+    <a onclick="show_hide(this.id)" style="cursor:pointer; text-decoration:underline; float: right;" id="showLow0">Hide</a>
   </header> 
-  <div id="collapseLow0" style="display:none;">
+  <div id="collapseLow0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
         <div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
@@ -364,9 +364,9 @@ function drop(ev) {
   <header class="w3-container w3-yellow" id="medHeader">
     <h1 style="display:inline;">Task Name</h1>  
     <button style="float:right;" id="delete-med0" onclick="remove(this.id)">X</button>
-    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float:right;" id="showMed0">Show</a> 
+    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float:right;" id="showMed0">Hide</a> 
   </header> 
-  <div id="collapseMed0" style="display:none;">
+  <div id="collapseMed0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
         <div class="w3-container w3-round w3-khaki w3-center" id="Bar" style="width:12%">12%</div>
@@ -384,9 +384,9 @@ function drop(ev) {
   <header class="w3-container w3-red" id="highHeader">
     <h1 style="display:inline;">Task Name</h1>
     <button style="float:right;" id="delete-high0" onclick="remove(this.id)">X</button>
-    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float: right;" id="showHigh0">Show</a>
+    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float: right;" id="showHigh0">Hide</a>
   </header>
-  <div id="collapseHigh0" style="display:none;">
+  <div id="collapseHigh0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
         <div class="w3-container w3-round w3-pink w3-center" id="Bar" style="width:12%">12%</div>
