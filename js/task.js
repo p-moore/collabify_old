@@ -44,14 +44,16 @@ function displayLowTask(task){
 
   var d = new Date(task.date);
 
-  $( "#" + task.id + " #lowHeader button" ).attr("id", "deleteLow-"+task.id);
-  $( "#" + task.id + " #lowHeader a" ).attr("id", "showLow-"+task.id);
-  $( "#" + task.id + " #collapseLow0 div button" ).attr("id", "completeLow-"+task.id);
+  $( "#" + task.id + " #lowHeader button" ).attr("id", "delete-"+task.id);
+  $( "#" + task.id + " #lowHeader a" ).attr("id", "show-"+task.id);
+  $( "#" + task.id + " #collapseLow0 div button" ).attr("id", "complete-"+task.id);
+  $( "#" + task.id + " #collapseLow0 #Bar" ).attr("id", "Bar"+task.id);
+  $( "#" + task.id + " #collapseLow0").attr("id", "collapse"+task.id);
 
   $( "#" + task.id + " #lowHeader h1" )
     .html(task.name);
-  $( "#" + task.id + " #lowBar" ).css({"width": parseInt(task.percentage) + "%"});
-  $( "#" + task.id + " #lowBar" )
+  $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");
   $( "#" + task.id + " #lowFooter h5" )
     .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
@@ -61,14 +63,16 @@ function displayMediumTask(task){
 
   var d = new Date(task.date);
 
-  $( "#" + task.id + " #medHeader button" ).attr("id", "deleteMed-"+task.id);
-  $( "#" + task.id + " #medHeader a" ).attr("id", "showMed-"+task.id);
-  $( "#" + task.id + " #collapseMed0 div button" ).attr("id", "completeMed-"+task.id);
+  $( "#" + task.id + " #medHeader button" ).attr("id", "delete-"+task.id);
+  $( "#" + task.id + " #medHeader a" ).attr("id", "show-"+task.id);
+  $( "#" + task.id + " #collapseMed0 div button" ).attr("id", "complete-"+task.id);
+  $( "#" + task.id + " #collapseMed0 #Bar" ).attr("id", "Bar"+task.id);
+  $( "#" + task.id + " #collapseMed0").attr("id", "collapse"+task.id);
 
   $( "#" + task.id + " #medHeader h1" )
     .html(task.name);
-  $( "#" + task.id + " #medBar" ).css({"width": parseInt(task.percentage) + "%"});
-  $( "#" + task.id + " #medBar" )
+  $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");
   $( "#" + task.id + " #medFooter h5" )
     .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
@@ -78,30 +82,40 @@ function displayMediumTask(task){
 
   var d = new Date(task.date);
 
-  $( "#" + task.id + " #HighHeader button" ).attr("id", "deleteHigh-"+task.id);
-  $( "#" + task.id + " #HighHeader a" ).attr("id", "showHigh-"+task.id);
-  $( "#" + task.id + " #collapseHigh0 div button" ).attr("id", "completeHigh-"+task.id);
+  $( "#" + task.id + " #highHeader button" ).attr("id", "delete-"+task.id);
+  $( "#" + task.id + " #highHeader a" ).attr("id", "show-"+task.id);
+  $( "#" + task.id + " #collapseHigh0 div button" ).attr("id", "complete-"+task.id);
+  $( "#" + task.id + " #collapseHigh0 #Bar" ).attr("id", "Bar"+task.id);
+  $( "#" + task.id + " #collapseHigh0").attr("id", "collapse"+task.id);
+
 
   $( "#" + task.id + " #highHeader h1" )
     .html(task.name);
-  $( "#" + task.id + " #highBar" ).css({"width": parseInt(task.percentage) + "%"});
-  $( "#" + task.id + " #highBar" )
+  $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
+  $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");
   $( "#" + task.id + " #highFooter h5" )
     .html("<strong>" + task.assigned + "</strong>  " + d.toDateString() );
  }
 
-function move() {
-  var elem = document.getElementById("myBar");   
-  var width = 20; //starting width
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 100) { //ending width
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-      elem.innerHTML = width * 1  + '%';
+function move(id) {
+  var parsedID = id.slice(13);
+  var parsedPrio = parsedID.slice(0,1);
+  var parsedIDNum = parsedID.slice(1);
+
+  var elem = document.getElementById("Bardrag"+parsedID);
+  if(elem.textContent != "100%"){
+    var width = elem.textContent.slice(0,2); //starting width
+
+    var ids = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) { //ending width
+        clearInterval(ids);
+      } else {
+        width++; 
+        elem.style.width = width + '%'; 
+        elem.innerHTML = width * 1  + '%';
+      }
     }
   }
 }
