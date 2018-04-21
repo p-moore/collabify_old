@@ -51,7 +51,7 @@ function displayLowTask(task){
   $( "#" + task.id + " #collapseLow0").attr("id", "collapse"+task.id);
 
   $( "#" + task.id + " #lowHeader h1" )
-    .html(task.name);
+    .html("<strong>" + task.name + "</strong>");
   $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
   $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");
@@ -70,7 +70,7 @@ function displayMediumTask(task){
   $( "#" + task.id + " #collapseMed0").attr("id", "collapse"+task.id);
 
   $( "#" + task.id + " #medHeader h1" )
-    .html(task.name);
+    .html("<strong>" + task.name + "</strong>");
   $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
   $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");
@@ -90,7 +90,7 @@ function displayMediumTask(task){
 
 
   $( "#" + task.id + " #highHeader h1" )
-    .html(task.name);
+    .html("<strong>" + task.name + "</strong>");
   $( "#" + task.id + " #Bar"+task.id ).css({"width": parseInt(task.percentage) + "%"});
   $( "#" + task.id + " #Bar"+task.id )
     .html(task.percentage + "%");

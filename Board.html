@@ -84,6 +84,13 @@
         width: 350px;
         height: 50px;
     }
+    .taskName{
+      padding-top: 4px;
+      padding-bottom: 3px;
+    }
+    .percentageBar{
+      padding-top: 3px;
+    }
 </style>
 
 <!-- Drag and Drop Scripts -->
@@ -346,8 +353,6 @@ function drop(ev) {
 <button id="create-user" class="btn btn-primary">Create new task</button>
 </div>
 <!-- Low Prio Task Demo -->
-
-
 <div class="w3-card-4 LowPrioityTask" style="display: none;" id="dragL0" draggable="true" ondragstart="drag(event)">
   <header class="w3-container w3-blue" id="lowHeader">
     <h1 style="display:inline;">Task Name</h1>
@@ -357,10 +362,7 @@ function drop(ev) {
   <div id="collapseLow0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
-	  <br>
-	  <br>
-        <p><strong>Progress:</strong></p>
-		<div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
+        <div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
 	  <div class="container" align="center">
 		<br>
@@ -369,7 +371,7 @@ function drop(ev) {
 		<br>
 		</div>
     </div>
-    <footer class="w3-container w3-blue" id="lowFooter">
+    <footer class="w3-container w3-round w3-blue" id="lowFooter">
       <h5>worker</h5>
     </footer>
   </div>
@@ -377,8 +379,8 @@ function drop(ev) {
 
 
 <!-- Medium Prio Task Demo -->
-<div class="w3-card-4 MediumPrioityTask" style="display: none;" id="dragM0" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-yellow" id="medHeader">
+<div class="w3-card-4 w3-round MediumPrioityTask" style="display: none;" id="dragM0" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-round w3-yellow taskName" id="medHeader">
     <h1 style="display:inline;">Task Name</h1>  
     <button ype="button" class="close" aria-label="Close" style="float:right;" id="delete-med0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float:right;" id="showMed0">Hide</a> 
@@ -386,9 +388,6 @@ function drop(ev) {
   <div id="collapseMed0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
-	  <br>
-	  <br>
-	  <p><strong>Progress:</strong></p>
         <div class="w3-container w3-round w3-khaki w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
 	  <br>
@@ -397,15 +396,15 @@ function drop(ev) {
 	  <br>
 		<br>
     </div>
-    <footer class="w3-container w3-yellow" id="medFooter">
+    <footer class="w3-container w3-round w3-yellow" id="medFooter">
       <h5>worker</h5>
     </footer>
   </div>
 </div>
 
 <!-- High Prio Task Demo -->
-<div class="w3-card-4 HighPrioityTask" style="display: none;" id="dragH0" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-red" id="highHeader">
+<div class="w3-card-4 w3-round HighPrioityTask" style="display: none;" id="dragH0" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-round w3-red taskName" id="highHeader">
     <h1 style="display:inline;">Task Name</h1>
     <button ype="button" class="close" aria-label="Close" style="float:right;" id="delete-high0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float: right;" id="showHigh0">Hide</a>
@@ -413,9 +412,6 @@ function drop(ev) {
   <div id="collapseHigh0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
-	  <br>
-	  <br>
-	  <p><strong>Progress:</strong></p>
         <div class="w3-container w3-round w3-pink w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
 	  <br>
@@ -423,7 +419,7 @@ function drop(ev) {
 	  <br>
 		<br>
     </div>
-    <footer class="w3-container w3-red" id="highFooter">
+    <footer class="w3-container w3-round w3-red" id="highFooter">
       <h5>worker</h5>
     </footer>
   </div>
