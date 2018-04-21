@@ -155,7 +155,9 @@ input[type=text] {
     padding: 12px 20px 12px 40px;
 
 }
-
+h3{
+	font-color:white;
+}
 input[type=text]:focus {
     
 }
@@ -173,6 +175,10 @@ input[type=text]:focus {
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 
 		</ul>
+		<div style="float:right; padding: 5px;" >
+			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button> 
+			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+		</div>
 		<form>
   			<input type="text" name="search" placeholder="Search..">
 			
@@ -183,27 +189,15 @@ input[type=text]:focus {
 
 <div class="container-fluid">
 
-<!-- Header container -->
+	<!-- Header container -->
 	<div class="well well-header">
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
 
-		<div class="container" align="right">
-			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button>
-			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
-				<!-- Search Bar -->
-				<div class="row">
-				<div class="col-lg-6">
-					<div class="input-group" >
-						</div><!-- /.col-lg-6 -->
-				<div class="col-lg-6">
-					<div class="input-group">
-					</div>
-				</div>
-				</div>
-		</div>
-		<!-- /Search Bar -->
+		<h3 style="font-family:Lucida Sans Unicode,Lucida Grande, sans-serif; color:white;""> About </h3>
 
+		<p style="color:white;">Collabify is an online web application that will allow you to keep up to date with all of your coworkers and their respective projects.</p>
+			
 
 		<!-- Login Modal -->
 
@@ -271,15 +265,15 @@ input[type=text]:focus {
 								<div class="form-login">
 								<h4><strong>Sign up</strong></h4>
 								<p> to continue to Collabify </p>
-								<input type="text" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
+								<input type="username" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
 								</br>
 								<input type="password" id="SignUpUserPassword" class="form-control input-sm chat-input" placeholder="Password" required />
 								</br>
-								<input type="text"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
+								<input type="name"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
 								<br>
 								<input type="email" id="SignUpEmail" class="form-control input-sm chat-input" placeholder="Enter a Valid email address" required />
 								<br>
-								<input type="text"  id="SignUpOrg" class="form-control input-sm chat-input" placeholder="Organization"required />
+								<input type="Org"  id="SignUpOrg" class="form-control input-sm chat-input" placeholder="Organization"required />
 								<br>
 								<div class="wrapper">
 								<span class="group-btn">
@@ -322,19 +316,19 @@ input[type=text]:focus {
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
       </div>
     </div>
 
