@@ -494,67 +494,61 @@ function drop(ev) {
 
 <!-- Low Prio Task Demo -->
 <div class="w3-card-4 LowPrioityTask" id="dragL0" draggable="true" ondragstart="drag(event)">
- <button id="delete-low0" onclick="remove(this.id)">X</button>
- <div>
-	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showLow0">Show</a>
-</div>
- <div id="collapseLow0" style="display:none;">
   <header class="w3-container w3-blue" id="lowHeader">
-    <h1>Task Name</h1>
-  </header>
-  <div class="w3-container">
-    <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-light-blue w3-center" id="lowBar" style="width:12%">12%</div>
-    </div> 
-    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
-  </div>
-  <footer class="w3-container w3-blue" id="lowFooter">
-    <h5>worker</h5>
-  </footer>
+    <h1 style="display:inline;">Task Name</h1>
+    <button  style="float:right;" id="delete-low0" onclick="remove(this.id)">X</button>
+    <a onclick="show_hide(this.id)" style="cursor:pointer; text-decoration:underline; float: right;" id="showLow0">Show</a>
+  </header> 
+  <div id="collapseLow0" style="display:none;">
+    <div class="w3-container">
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-round w3-light-blue w3-center" id="lowBar" style="width:12%">12%</div>
+      </div> 
+      <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+    </div>
+    <footer class="w3-container w3-blue" id="lowFooter">
+      <h5>worker</h5>
+    </footer>
   </div>
 </div>
 
 <!-- Medium Prio Task Demo -->
 <div class="w3-card-4 MediumPrioityTask" id="dragM0" draggable="true" ondragstart="drag(event)">
- <button id="delete-med0" onclick="remove(this.id)">X</button>
- <div>
-	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showMed0">Show</a>
-</div>
- <div id="collapseMed0" style="display:none;">
   <header class="w3-container w3-yellow" id="medHeader">
-    <h1>Task Name</h1>
-  </header>
-  <div class="w3-container">
-    <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-khaki w3-center" id="medBar" style="width:12%">12%</div>
-    </div> 
-    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
-  </div>
-  <footer class="w3-container w3-yellow" id="medFooter">
-    <h5>worker</h5>
-  </footer>
+    <h1 style="display:inline;">Task Name</h1>  
+    <button style="float:right;" id="delete-med0" onclick="remove(this.id)">X</button>
+    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float:right;" id="showMed0">Show</a> 
+  </header> 
+  <div id="collapseMed0" style="display:none;">
+    <div class="w3-container">
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-round w3-khaki w3-center" id="medBar" style="width:12%">12%</div>
+      </div> 
+      <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+    </div>
+    <footer class="w3-container w3-yellow" id="medFooter">
+      <h5>worker</h5>
+    </footer>
   </div>
 </div>
 
 <!-- High Prio Task Demo -->
 <div class="w3-card-4 HighPrioityTask" id="dragH0" draggable="true" ondragstart="drag(event)">
-<button id="delete-high0" onclick="remove(this.id)">X</button>
-<div>
-	<a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;" id="showHigh0">Show</a>
-</div>
-<div id="collapseHigh0" style="display:none;">
   <header class="w3-container w3-red" id="highHeader">
-    <h1>Task Name</h1>
+    <h1 style="display:inline;">Task Name</h1>
+    <button style="float:right;" id="delete-high0" onclick="remove(this.id)">X</button>
+    <a onclick="show_hide(this.id)" style="cursor:pointer;text-decoration:underline;float: right;" id="showHigh0">Show</a>
   </header>
-  <div class="w3-container">
-    <div class="w3-light-grey w3-round">
-      <div class="w3-container w3-round w3-pink w3-center" id="highBar" style="width:12%">12%</div>
-    </div> 
-    <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
-  </div>
-  <footer class="w3-container w3-red" id="highFooter">
-    <h5>worker</h5>
-  </footer>
+  <div id="collapseHigh0" style="display:none;">
+    <div class="w3-container">
+      <div class="w3-light-grey w3-round">
+        <div class="w3-container w3-round w3-pink w3-center" id="highBar" style="width:12%">12%</div>
+      </div> 
+      <button class="w3-button w3-green w3-margin-top" onclick="move()">Complete</button> 
+    </div>
+    <footer class="w3-container w3-red" id="highFooter">
+      <h5>worker</h5>
+    </footer>
   </div>
 </div>
 
