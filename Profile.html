@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Firebase back-end code -->
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 <style>
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -34,16 +56,107 @@ button {
 
 a {
   text-decoration: none;
-  font-size: 22px;
+  font-size:14px;
   color: black;
 }
 
 button:hover, a:hover {
   opacity: 0.7;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    /*padding: 0;*/
+    overflow: hidden;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#logo {
+    padding: none !important;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #111;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.footer-bg{
+    color:black;
+}
+.footer-main{
+    background-color:black;
+    margin: 15px;
+
+}
+
+input[type=text] {
+    width: 225px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 0px;
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+h3{
+    font-color:white;
+}
+input[type=text]:focus {
+    
+}
+.navbar{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
 </style>
 </head>
+
 <body>
+
+<!--Navbar-->
+
+<!--Navbar-->
+
+<div class = "container-fluid">
+    <nav class="navbar">
+        <ul class="nav navbar-nav">
+            <img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px; " >
+        </ul>
+        <ul class="nav navbar-nav">
+            <li><a href="index.html"><font color="white">Home</font></a></li>
+            <li class="active"><a href="Profile.html"><font color="white">Profile</font></a></li>
+            <li style=""><a href="About.html"><font color="white">About</font></a></li>
+        </ul>
+        <form style="padding-top:2px">
+            <input type="text" name="search" placeholder="Search..">
+        </form>
+    </nav>
+</div>
+<!-- /Navbar -->
 
 
 <h2 style="text-align:center">My Profile</h2>
@@ -147,6 +260,7 @@ button:hover, a:hover {
 
 </div>
 
-
 </body>
+
+</div>
 </html>
