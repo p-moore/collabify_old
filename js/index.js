@@ -1,29 +1,14 @@
-firebase.auth().onAuthStateChanged(function(user) {
-  console.log("hello world");
-  var user = firebase.auth().currentUser;
-  if (user) {
-    // User is signed in.
-    console.log("hello world1");
-    document.getElementById("logged_in_state").style.display = "initial";
-    document.getElementById("logged_out_state").style.display = "none";
-    window.location.href = "HomePage.html";
-	var name = user.displayName;
-	document.getElementById("user").innerHTML = name;
-    
-  } else {
-    // No user is signed in.
-	document.getElementById("logged_in_state").style.display = "none";
-	document.getElementById("logged_out_state").style.display = "initial";
-  console.log("no user");
-
-  }
-});
-
+function navigateToLoginPage(){
+  window.location.href = "collabify.html";
+}
 
 function login(){
 
 var email = document.getElementById("email_field").value;
 var pass = document.getElementById("password_field").value;
+
+console.log(email);
+console.log(pass);
 
 firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
     //Errors
@@ -36,12 +21,14 @@ firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
   }
   console.log(error);  
 });
-window.alert("nothing");
 }
+/*setTimeout(function() {window.alert("Authenticating.")}, 10);
+$('LoginModal').dialog("close");
+*/
 
 function signUp(){
   var name, username, email, uid, password;
-  name = document.getElementById("SignUpName").value;
+  /*name = document.getElementById("SignUpName").value;*/
   username = document.getElementById("SignUpUserName").value;
   email = document.getElementById("SignUpEmail").value;
   password = document.getElementById("SignUpPassword").value;
@@ -52,13 +39,11 @@ function signUp(){
       alert(errorMessage);
       console.log(error);
   });
-  window.alert("You will be redirected to our log in page. Proceed to sign in to your new account from there.");
 }
 
 function logout(){
  
 	firebase.auth().signOut().then(function() {
-	window.alert('logged out');
     // Sign-out successful.
 	window.location.href = "index.html";
   }).catch(function(error) {

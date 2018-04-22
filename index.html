@@ -50,6 +50,59 @@
 <!-- /Firebase back-end code -->
 </script>
 
+
+<script type="text/javascript">
+  initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+        user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in-status').textContent = 'Signed in';
+          document.getElementById('sign-in').textContent = 'Sign out';
+          document.getElementById('account-details').textContent = JSON.stringify({
+            displayName: displayName,
+            email: email,
+            emailVerified: emailVerified,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            uid: uid,
+            accessToken: accessToken,
+            providerData: providerData
+          }, null, '  ');
+        });
+        window.location = "HomePage.html";
+      } else {
+        // User is signed out.
+        document.getElementById('sign-in-status').textContent = 'Signed out';
+        document.getElementById('sign-in').textContent = 'Sign in';
+        document.getElementById('account-details').textContent = 'null';
+      }
+    }, function(error) {
+      console.log(error);
+    });
+  };
+
+  window.addEventListener('load', function() {
+    initApp()
+  });
+</script>
+</head>
+<body>
+<div id="sign-in-status"></div>
+<div id="sign-in"></div>
+<div id="account-details"></div>
+  </body>
+</html>
+
+
+
 <!-- Sign in Validation Function -->
 <script>
 
@@ -83,11 +136,18 @@ function SignInCheck(){
 
 <style>
 
+#body {
+  background-image: url("css/images/CollabifyLogin.jpg");
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
 .well-header{
 	background-color:black;
 }
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
+	background-image: url("css/images/CollabifyLogin.jpg");
   background-color:#fff;
   -webkit-font-smoothing: antialiased;
   font: normal 14px Roboto,arial,sans-serif;
@@ -103,6 +163,15 @@ body {
     border-color:#d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
+}
+
+#bg{
+	max-width: 500px;
+	height: 300px;
+  	float:right;
+	border-radius: 5px;
+    background-color: #f2f2f2;
+    font-family:arial;
 }
 
 .form-control {
@@ -186,6 +255,25 @@ input[type=text]:focus {
     padding:0;
 }
 
+
+
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 24px;
+}
+
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+
 </style>
 
 <body>
@@ -203,8 +291,7 @@ input[type=text]:focus {
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 		</ul>
 		<div style="float:right; padding-top: 7px;" >
-			<button class="btn btn-primary btn-medium" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button> 
-			<button class="btn btn-primary btn-medium" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+			<button class="btn btn-primary btn-medium" id="btnLogin" onclick="navigateToLoginPage()">Login</button> 
 		</div>
 		<form style="padding-top:2px">
   			<input type="text" name="search" placeholder="Search..">
@@ -216,13 +303,39 @@ input[type=text]:focus {
 <div class="container-fluid">
 
 	<!-- Header container -->
-	<div class="well well-header">
+	<div class="container">
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
 
-		<p style="color:white;">Making team work easier.</p>
-			
+		<p style="color:white; text-align:left; font-size: 18px;">Making team work easier.</p>
 
+</div>
+		<!--Bac-->
+<div class="container" id="bg">
+	<div style="font-size: 25px; padding-top: 5px;">
+		Sign up today!
+	</div>
+      <form class="container-fluid">
+    <div class="row">
+      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
+      <input type="email" class="form-control" id="SignUpEmail" placeholder="Enter a valid email">
+    </div>
+      <div class="row">
+    <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Username</label>
+    <input type="username" class="form-control" id="SignUpUserName" placeholder="Enter a username">
+  </div>
+    <div class="row">
+      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Password</label>
+      <input type="password" class="form-control" id="SignUpPassword" placeholder="Enter a password">
+    </div>
+  <br>
+  <div class = "SignUpButton" style="text-align:center">
+  <button type="submit" class="btn btn-block btn-primary" onclick="signUp()">Sign Up</button>
+</div>
+</form>
+</div>
+
+<!--Bac -->
 		<!-- Login Modal -->
 
 		<div class="modal fade" id="LoginModal" role="dialog">
@@ -240,19 +353,18 @@ input[type=text]:focus {
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="form-login">
-								<h4><strong>Sign in</strong></h4>
-								<p> to continue to Collabify </p>
-								<input type="email" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
-								</br>
-								<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
-								<div class="wrapper">
-								<span class="group-btn">
-                  				<button class="btn btn-primary" value="Login" onclick="login()">Login</button>
-								</span>
+									<h4><strong>Sign in</strong></h4>
+									<p> to continue to Collabify </p>
+									<input type="email" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
+									</br>
+									<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
+									</br>
+									<div class="wrapper">
+										<span class="group-btn">
+		                  					<button class="btn btn-primary" value="Login" onclick="login()">Login</button>
+										</span>
+									</div>
 								</div>
-								</div>
-
 							</div>
 						</div>
 					</div>
@@ -269,108 +381,19 @@ input[type=text]:focus {
 
 		<!-- /Login Modal -->
 
-
-		<!-- Sign-up Modal -->
-
-		<div class="modal fade" id="SignUpModal" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Register to get started</h4>
-				</div>
-			<div class="modal-body">
-				<form action="#" method="post" id="SignUpInfo">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-5">
-								<div class="form-login">
-								<h4><strong>Sign up</strong></h4>
-								<p> to continue to Collabify </p>
-								<input type="name"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
-								<br>
-								<input type="username" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
-								</br>
-								<input type="password" id="SignUpPassword" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
-								<input type="email" id="SignUpEmail" class="form-control input-sm chat-input" placeholder="Enter a Valid email address" required />
-								<br>
-								<div class="wrapper">
-								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Sign-up" onclick="signUp()" required </><i class="fa fa-sign-in"></i>
-								</span>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-			<button onclick="ClearValues()" class="btn btn-primary btn-default">Clear fields</button>
-				<button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-
-		<!-- /Login Modal -->
+		
 </div>
 </div>
 </div>
 </div>
 
+<div id="body">
 
 
-
-
-<!-- SlideShow -->
-<div class="container-fluid" align="center">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
-    <li data-target="#myCarousel" data-slide-to="4"></li>
-  </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner container-fluid" style="">
-      <div class="item active">
-        <img src="css/images/slideshow1.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="css/images/slideshow2.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="css/images/slideshow3.jpg"  class="img-responsive" alt="Collabify features" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="css/images/slideshow4.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
-      </div>
-
-      <div class="item">
-        <img src="css/images/slideshow5.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
 </div>
-<!-- /SlideShow -->
+
+
+
 <br>
 
 <!-- Footer -->
@@ -389,17 +412,6 @@ input[type=text]:focus {
 
 
 </div>
-
-<!-- Login status Indicators -->
-
-<div id="logged_in_state">
-  <h1> You are successfully logged in </h1>
-
-</div>
-<div id="logged_out_state">
-  <h1> You are successfully logged out </h1>
-</div>
-<!-- /Login status Indicators -->
 
 
 </script>
