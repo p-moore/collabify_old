@@ -1,33 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang ="en-US">
 <head>
-	<title>Login Text</title>
+<meta charset ="UTF-8">
 
-	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<script type="text/javascript">
-		var config = {
-    			apiKey: "AIzaSyCU2SSWKNM_ByPOMCS9tKHLZG-24xz_-7g",
-    			authDomain: "collabify-lsu3380.firebaseapp.com",
-    			databaseURL: "https://collabify-lsu3380.firebaseio.com",
-    			projectId: "collabify-lsu3380",
-    			storageBucket: "",
-    			messagingSenderId: "851211215524"
-  			};
-  			
-  			firebase.initializeApp(config);			
-	</script>
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCUI53GZ6IXzu957lBR-WWfmgEPNj-Nd8c",
+    authDomain: "collabify-us.firebaseapp.com",
+    databaseURL: "https://collabify-us.firebaseio.com",
+    projectId: "collabify-us",
+    storageBucket: "collabify-us.appspot.com",
+    messagingSenderId: "458971277153"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="js/index.js"/>
+<!-- /Firebase back-end code -->
+</script>
+
+
+<script type="text/javascript">
+  initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+        user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in-status').textContent = 'Signed in';
+          document.getElementById('sign-in').textContent = 'Sign out';
+          document.getElementById('account-details').textContent = JSON.stringify({
+            displayName: displayName,
+            email: email,
+            emailVerified: emailVerified,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            uid: uid,
+            accessToken: accessToken,
+            providerData: providerData
+          }, null, '  ');
+        });
+        //window.location = "HomePage.html";
+      } else {
+        // User is signed out.
+        document.getElementById('sign-in-status').textContent = 'Signed out';
+        document.getElementById('sign-in').textContent = 'Sign in';
+        document.getElementById('account-details').textContent = 'null';
+      }
+    }, function(error) {
+      console.log(error);
+    });
+  };
+
+  window.addEventListener('load', function() {
+    initApp()
+  });
+</script>
+</head>
+<body>
+<div id="sign-in-status"></div>
+<div id="sign-in"></div>
+<div id="account-details"></div>
+  </body>
+</html>
 
 </head>
 <body>
 	
 
 	<div class='container'>
-		<input type="email" id="txtEmail" placeholder='Email'>
+		<input type="email" id="email_field" placeholder='Email'>
 
-		<input type="password" id="txtPassword" placeholder="Password">
+		<input type="password" id="password_field" placeholder="Password">
 
-		<button id="btnLogin" onClick = 'click' class="btn btn-action">
+		<button id="submit" class="btn btn-primary" onclick="login()">
 			Log In
 		</button>
 		
@@ -39,27 +96,6 @@
 			Logout
 		</button>
 	</div>
-	<script type="text/javascript">
-
-			console.log('I loaded');
-			
-			const txtEmail = document.getElementById('txtEmail');
-			const txtPasssword = document.getElementById('txtPassword');
-			const btnLogin = document.getElementById('btnLogin');
-			const btnSignUp = document.getElementById('btnSignUp');
-			const btnLogout = document.getElementById('btnLogout');
-			
-			btnLogin.addEventListener('click', e => {
-				const email = txtEmail.value;
-				const pass = txtPassword.value;
-				const auth = firebase.auth();
-
-				const promise = auth.signInWithEmailAndPassword(email, pass);
-				promise.catch(e => console.log(e.message));
-				
-				console.log('hello world');
-			});
-		
-	</script>
+	
 </body>
 </html>
