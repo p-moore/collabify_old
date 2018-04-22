@@ -66,6 +66,12 @@ function ClearValues() {
 	document.getElementById("SignUpInfo").reset();
 }
 
+function SignInCheck(){
+
+	window.alert("Woah...! You must login first!");
+
+}
+
 </script>
 
 <!-- /Sign in Validation Function -->
@@ -172,7 +178,7 @@ input[type=text]:focus {
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="index.html"><font color="white">Home</font></a></li>
-			<li><a href="Profile.html"><font color="white">Profile</font></a></li>
+			<li><a href="#" onclick="SignInCheck()"><font color="white">Profile</font></a></li>
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 
 		</ul>
@@ -195,9 +201,7 @@ input[type=text]:focus {
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
 
-		<h3 style="font-family:Lucida Sans Unicode,Lucida Grande, sans-serif; color:white;""> About </h3>
-
-		<p style="color:white;">Collabify is an online web application that will allow you to keep up to date with all of your coworkers and their respective projects.</p>
+		
 			
 
 		<!-- Login Modal -->
