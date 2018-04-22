@@ -1,7 +1,9 @@
 firebase.auth().onAuthStateChanged(function(user) {
+  console.log("hello world");
   var user = firebase.auth().currentUser;
   if (user) {
     // User is signed in.
+    console.log("hello world1");
     document.getElementById("logged_in_state").style.display = "initial";
     document.getElementById("logged_out_state").style.display = "none";
     window.location.href = "HomePage.html";
@@ -12,6 +14,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     // No user is signed in.
 	document.getElementById("logged_in_state").style.display = "none";
 	document.getElementById("logged_out_state").style.display = "initial";
+  console.log("no user");
 
   }
 });
@@ -19,22 +22,21 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function login(){
 
-var username = document.getElementById("email_field").value;
+var email = document.getElementById("email_field").value;
 var pass = document.getElementById("password_field").value;
 
-firebase.auth().signInWithEmailAndPassword(username, pass).catch(function(error) {
+firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
     //Errors
   	var errorCode = error.code;
-    var errorMessage = error.message;
-    
-    if (errorCode == 'auth/wrong-password') {
-        alert('Wrong password.');
-    } else {
-        alert(errorMessage);
-    }
-    console.log(error);
+    var errorMessage = error.message;    
+  if (errorCode == 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);  
 });
-
+window.alert("nothing");
 }
 
 function signUp(){
@@ -52,6 +54,7 @@ function signUp(){
   });
   window.alert("You will be redirected to our log in page. Proceed to sign in to your new account from there.");
 }
+
 function logout(){
  
 	firebase.auth().signOut().then(function() {
