@@ -131,16 +131,15 @@ ul {
 
 }
 
-li {
-    float:left;
-}
-
 li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+#logo {
+	padding: none !important;
 }
 
 li a:hover:not(.active) {
@@ -153,21 +152,40 @@ li a:hover:not(.active) {
 
 input[type=text] {
     width: 225px;
+    height: 30px;
     box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 0px;
     background-color: white;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+}
+
+#btnLogin{
+	
+}
+#btnPass{
 
 }
+
+
 h3{
 	font-color:white;
 }
 input[type=text]:focus {
     
 }
+.navbar{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
 </style>
 
 <body>
@@ -177,18 +195,19 @@ input[type=text]:focus {
 <div class = "container-fluid">
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px; " >
+		</ul>
+		<ul class="nav navbar-nav">
 			<li class="active"><a href="index.html"><font color="white">Home</font></a></li>
 			<li><a href="#" onclick="SignInCheck()"><font color="white">Profile</font></a></li>
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
-
 		</ul>
-		<div style="float:right; padding: 5px;" >
-			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button> 
-			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
+		<div style="float:right; padding-top: 7px;" >
+			<button class="btn btn-primary btn-medium" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button> 
+			<button class="btn btn-primary btn-medium" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
 		</div>
-		<form>
+		<form style="padding-top:2px">
   			<input type="text" name="search" placeholder="Search..">
-			
 		</form>
 	</nav>
 </div>
@@ -199,9 +218,9 @@ input[type=text]:focus {
 	<!-- Header container -->
 	<div class="well well-header">
 
-		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
+		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
 
-		
+		<p style="color:white;">Making team work easier.</p>
 			
 
 		<!-- Login Modal -->
@@ -229,7 +248,7 @@ input[type=text]:focus {
 								</br>
 								<div class="wrapper">
 								<span class="group-btn">
-                  <button class="btn btn-primary" value="Login" onclick="login()">Login</button>
+                  				<button class="btn btn-primary" value="Login" onclick="login()">Login</button>
 								</span>
 								</div>
 								</div>
@@ -270,19 +289,17 @@ input[type=text]:focus {
 								<div class="form-login">
 								<h4><strong>Sign up</strong></h4>
 								<p> to continue to Collabify </p>
-								<input type="username" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
-								</br>
-								<input type="password" id="SignUpUserPassword" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
 								<input type="name"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
 								<br>
+								<input type="username" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
+								</br>
+								<input type="password" id="SignUpPassword" class="form-control input-sm chat-input" placeholder="Password" required />
+								</br>
 								<input type="email" id="SignUpEmail" class="form-control input-sm chat-input" placeholder="Enter a Valid email address" required />
-								<br>
-								<input type="Org"  id="SignUpOrg" class="form-control input-sm chat-input" placeholder="Organization"required />
 								<br>
 								<div class="wrapper">
 								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Sign-up" onclick="creatUser()"required </><i class="fa fa-sign-in"></i>
+									<input class="btn btn-primary" type="submit" value="Sign-up" onclick="signUp()" required </><i class="fa fa-sign-in"></i>
 								</span>
 								</div>
 								</div>
@@ -308,32 +325,37 @@ input[type=text]:focus {
 
 
 <!-- SlideShow -->
-<div class="container-fluid">
+<div class="container-fluid" align="center">
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+  </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner container-fluid" style="">
       <div class="item active">
-        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/slideshow1.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/slideshow2.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/slideshow3.jpg"  class="img-responsive" alt="Collabify features" style="width:100%;">
       </div>
 
       <div class="item">
-        <img src="css/images/Picture1.jpg" alt="Collabify features" style="width:100%;">
+        <img src="css/images/slideshow4.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="css/images/slideshow5.jpg" class="img-responsive" alt="Collabify features" style="width:100%;">
       </div>
     </div>
 
