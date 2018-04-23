@@ -57,9 +57,8 @@
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
         user.getIdToken().then(function(accessToken) {
-          document.getElementById('sign-in-status').textContent = 'Signed in';
-          document.getElementById('sign-in').textContent = 'Sign out';
-          document.getElementById('account-details').textContent = JSON.stringify({
+          document.getElementById('user').textContent = email;
+          /*document.getElementById('account-details').textContent = JSON.stringify({
             displayName: displayName,
             email: email,
             emailVerified: emailVerified,
@@ -68,13 +67,10 @@
             uid: uid,
             accessToken: accessToken,
             providerData: providerData
-          }, null, '  ');
+          }, null, '  ');*/
         });
       } else {
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
-        document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
       }
     }, function(error) {
       console.log(error);
@@ -87,9 +83,9 @@
 </script>
 </head>
 <body>
-	<div id="sign-in-status"></div>
+<!--<div id="sign-in-status"></div>
 <div id="sign-in"></div>
-<div id="account-details"></div>
+<div id="account-details"></div>-->
   </body>
 </html>
 	<title>Collabify</title>
@@ -164,7 +160,7 @@
 			<button class="btn btn-primary btn-large" id="btnLogout" onclick="logout()">Logout</button>
     	</div>
 
-      <p style="color:white;"><strong> Welcome!</strong></p>
+      <p id="greeting" style="color:white;"><strong> Welcome!</strong></p>
       <p id="user" style="color:white;"> </p>
 	</div>
 

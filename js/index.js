@@ -24,10 +24,10 @@ $('LoginModal').dialog("close");
 */
 
 function signUp(){
-  var name, username, email, uid, password;
+  var username, email, password;
   /*name = document.getElementById("SignUpName").value;*/
-  username = document.getElementById("SignUpUserName").value;
   email = document.getElementById("SignUpEmail").value;
+  username = document.getElementById("SignUpUserName").value;
   password = document.getElementById("SignUpPassword").value;
 
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
@@ -36,6 +36,18 @@ function signUp(){
       alert(errorMessage);
       console.log(error);
   });
+  //createUserName();
+  /*user = firebase.auth().currentUser;
+  user.updateProfile({
+  displayName: document.getElementById("SignUpName").value
+}).then(function() {
+  // Profile updated successfully!
+  // "Jane Q. User"
+  var displayName = user.displayName;
+  // "https://example.com/jane-q-user/profile.jpg"
+}, function(error) {
+  // An error happened.
+});*/
 }
 
 function logout(){
@@ -47,3 +59,17 @@ function logout(){
     // An error happened.
   });
 }
+
+/*function createUserName(){
+  user = firebase.auth().currentUser;
+  user.updateProfile({
+  displayName: document.getElementById("SignUpName").value
+}).then(function() {
+  // Profile updated successfully!
+  // "Jane Q. User"
+  var displayName = user.displayName;
+  // "https://example.com/jane-q-user/profile.jpg"
+}, function(error) {
+  // An error happened.
+});
+}*/

@@ -79,9 +79,9 @@
         window.location = "HomePage.html";
       } else {
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
+/*        document.getElementById('sign-in-status').textContent = 'Signed out';
         document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
+        document.getElementById('account-details').textContent = 'null';*/
       }
     }, function(error) {
       console.log(error);
@@ -157,7 +157,7 @@ body {
 
 #bg{
 	max-width: 500px;
-	height: 300px;
+	height: 380px;
   	float:right;
 	border-radius: 5px;
     background-color: #f2f2f2;
@@ -231,9 +231,7 @@ input[type=text] {
 h3{
 	font-color:white;
 }
-input[type=text]:focus {
-    
-}
+
 .navbar{
 	padding-left: 10px;
 	padding-right: 10px;
@@ -244,25 +242,6 @@ input[type=text]:focus {
     margin:0;
     padding:0;
 }
-
-
-
-/* Top left text */
-.top-left {
-    position: absolute;
-    top: 8px;
-    left: 16px;
-    font-size: 24px;
-}
-
-
-/* Centered text */
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} 
 
 </style>
 
@@ -297,7 +276,7 @@ input[type=text]:focus {
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
 
-		<p style="color:white; text-align:left; font-size: 18px;">Making team work easier.</p>
+		<p style="color:white; text-align:left; font-size: 18px;">Making teamwork easier.</p>
 
 </div>
 		<!--Bac-->
@@ -305,7 +284,11 @@ input[type=text]:focus {
 	<div style="font-size: 25px; padding-top: 5px;">
 		Sign up today!
 	</div>
-      <form class="container-fluid">
+	<div class="container-fluid">
+      	<div class="row">
+      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Name</label>
+      <input type="name" class="form-control" id="SignUpName" placeholder="Enter full name">
+    </div>
     <div class="row">
       <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
       <input type="email" class="form-control" id="SignUpEmail" placeholder="Enter a valid email">
@@ -322,7 +305,7 @@ input[type=text]:focus {
   <div class = "SignUpButton" style="text-align:center">
   <button type="submit" class="btn btn-block btn-primary" onclick="signUp()">Sign Up</button>
 </div>
-</form>
+</div>
 </div>
 
 <!--Bac -->
