@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang ="en-US">
+<head>
+	<meta charset ="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+
+	<!--homestyle.css file-->
+	<link href="css/homestyle.css" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+	<script>
+	  // Initialize Firebase
+	  var config = {
+		apiKey: "AIzaSyCUI53GZ6IXzu957lBR-WWfmgEPNj-Nd8c",
+		authDomain: "collabify-us.firebaseapp.com",
+		databaseURL: "https://collabify-us.firebaseio.com",
+		projectId: "collabify-us",
+		storageBucket: "collabify-us.appspot.com",
+		messagingSenderId: "458971277153"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<script src="js/index.js"> </script>
+	
+	<script type="text/javascript">
+			initApp = function() {
+			firebase.auth().onAuthStateChanged(function(user) {
+			if (user) {
+			// User is signed in.
+			var displayName = user.displayName;
+			var email = user.email;
+			var emailVerified = user.emailVerified;
+			var photoURL = user.photoURL;
+			var uid = user.uid;
+			var phoneNumber = user.phoneNumber;
+			var providerData = user.providerData;
+			user.getIdToken().then(function(accessToken) {
+			  document.getElementById('sign-in-status').textContent = 'Signed in';
+			  document.getElementById('sign-in').textContent = 'Sign out';
+			  document.getElementById('account-details').textContent = JSON.stringify({
+				displayName: displayName,
+				email: email,
+				emailVerified: emailVerified,
+				phoneNumber: phoneNumber,
+				photoURL: photoURL,
+				uid: uid,
+				accessToken: accessToken,
+				providerData: providerData
+			  }, null, '  ');
+			});
+			window.location = "HomePage.html";
+		  } else {
+			// User is signed out.
+			document.getElementById('sign-in-status').textContent = 'Signed out';
+			document.getElementById('sign-in').textContent = 'Sign in';
+			document.getElementById('account-details').textContent = 'null';
+		  }
+		}, function(error) {
+		  console.log(error);
+		});
+	  };
+
+	  window.addEventListener('load', function() {
+		initApp()
+	  });
+	</script>
+	</head>
+<body>
+<!--<div id="sign-in-status"></div>
+<div id="sign-in"></div>
+<div id="account-details"></div>-->
+
+</body>
+</html>
+	
+</head>
+<style>
+
+h3{
+	color:white;
+	
+}
+#bg{
+	max-width: 500px;
+	height: 300px;
+  	
+	border-radius: 5px;
+    background-color: #f2f2f2;
+    font-family:arial;
+}
+
+body{
+	background-image: url("css/images/CollabifyLogIn.jpg"); 
+}
+</style>
+
+<body>
+
+	<div class="container" align="center">
+
+	<h3> Login to continue to Collabify </h3>
+
+	<div class="container" id="bg">
+	
+		<div class="row">
+		  <label  style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
+		  <input type="email" class="form-control" id="email_field" placeholder="Enter a valid email"></input>
+		  <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Password</label>
+			<input type="password" class="form-control" id="password_field" placeholder="Enter a password"></input>
+			<br>
+			<button id="submit" class="btn btn-primary" onclick="login()">Sign-in</button>
+		</div>
+		
+	<br>
+	</div>
+	</div>
+
+</body>
+</html>

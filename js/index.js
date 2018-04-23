@@ -7,9 +7,6 @@ function login(){
 var email = document.getElementById("email_field").value;
 var pass = document.getElementById("password_field").value;
 
-console.log(email);
-console.log(pass);
-
 firebase.auth().signInWithEmailAndPassword(email, pass).catch(function(error) {
     //Errors
   	var errorCode = error.code;
