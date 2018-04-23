@@ -264,6 +264,8 @@ input[type=text]:focus {
     transform: translate(-50%, -50%);
 } 
 
+/*.enclose {position:fixed;bottom:0px; padding-right:25px;width:100%;}*/s
+
 </style>
 
 <body>
@@ -273,10 +275,11 @@ input[type=text]:focus {
 <div class = "container-fluid">
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
-			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px; " >
+      <a href ="index.html">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
 		</ul>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="index.html"><font color="white">Home</font></a></li>
+			<!--<li class="active"><a href="index.html"><font color="white">Home</font></a></li>-->
 			<li><a href="#" onclick="SignInCheck()"><font color="white">Profile</font></a></li>
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 		</ul>
@@ -377,9 +380,8 @@ input[type=text]:focus {
 </div>
 </div>
 
-<br>
-
 <!-- Footer -->
+<div class="container-fluid" style="position: absolute; bottom: 0; width: 100%;">
 	<footer class="well footer footer-main">
 		<div class="container text-center">
 			<a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
@@ -391,6 +393,7 @@ input[type=text]:focus {
 					<p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
 	    </div>
 	</footer>
+</div>
 <!-- /Footer -->
 
 
