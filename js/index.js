@@ -1,5 +1,5 @@
 function navigateToLoginPage(){
-  window.location.href = "collabify.html";
+  window.location.href = "login.html";
 }
 
 function login(){
