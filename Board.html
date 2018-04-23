@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="css/jquery-ui.css">
 <link rel="stylesheet" href="css/jquery-ui.min.css">
 <link rel="stylesheet" href="css/dialoguetheme.css">
+
 <style>
     label, input { 
       display:block; 
@@ -70,8 +71,9 @@
 <style>
     .divCatagory{
         width: 350px;
-        height: 500px;
+        height: auto;
         padding: 10px;
+        padding-bottom: 50px;
         float: left;
         border: 1px solid black;
     }
@@ -105,6 +107,11 @@
     .percentageBar{
       padding-top: 3px;
     }
+    #clonehere{
+      width: 350px;
+      height: 200px;
+    }
+
 </style>
 
 <!-- Drag and Drop Scripts -->
@@ -366,9 +373,10 @@ function drop(ev) {
 <div class="container" align="center">
 <button id="create-user" class="btn btn-primary">Create new task</button>
 </div>
+
 <!-- Low Prio Task Demo -->
-<div class="w3-card-4 LowPrioityTask" style="display: none;" id="dragL0" draggable="true" ondragstart="drag(event)">
-  <header class="w3-container w3-blue" id="lowHeader">
+<div class="w3-card-4 w3-round LowPrioityTask" style="display: none;" id="dragL0" draggable="true" ondragstart="drag(event)">
+  <header class="w3-container w3-round w3-blue taskName" id="lowHeader">
     <h1 style="display:inline;">Task Name</h1>
     <button  type="button" class="close" aria-label="Close" style="float:right;" id="delete-low0" onclick="remove(this.id)">  X  </button>
     <a onclick="show_hide(this.id)" style="cursor:pointer; text-decoration:underline; float: right;" id="showLow0">Hide</a>
@@ -404,11 +412,12 @@ function drop(ev) {
       <div class="w3-light-grey w3-round">
         <div class="w3-container w3-round w3-khaki w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
+    <div class="container" align="center">
 	  <br>
-		
       <button class="btn btn-dark rounded" onclick="move(this.id)">Complete</button> 
 	  <br>
 		<br>
+    </div>
     </div>
     <footer class="w3-container w3-round w3-yellow" id="medFooter">
       <h5>worker</h5>
@@ -428,11 +437,13 @@ function drop(ev) {
       <div class="w3-light-grey w3-round">
         <div class="w3-container w3-round w3-pink w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
+    <div class="container" align="center">
 	  <br>
       <button class="btn btn-dark rounded" onclick="move(this.id)">Complete</button> 
 	  <br>
 		<br>
     </div>
+    </div>    
     <footer class="w3-container w3-round w3-red" id="highFooter">
       <h5>worker</h5>
     </footer>
