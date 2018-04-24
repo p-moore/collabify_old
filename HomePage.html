@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang ="en-US">
 <head>
-	<meta charset ="UTF-8">
+<meta charset ="UTF-8">
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<!-- Icons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
 
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!--<script src ="js/index.js"/> -->
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!-- Firebase back-end code -->
 
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
 
 <script>
   // Initialize Firebase
@@ -138,6 +145,20 @@
 			border: 5px;
 			border-width: medium;
 		}
+		.navbar{
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		input[type=text] {
+    		width: 225px;
+    		height: 30px;
+    		box-sizing: border-box;
+    		border: 2px solid #ccc;
+    		border-radius: 4px;
+    		font-size: 0px;
+    		background-color: white;
+    		background-repeat: no-repeat;
+		}
 
 		body{
 			background-image:css/images/collaboration.jpg;
@@ -146,6 +167,29 @@
 
 </head>
 <body>
+<!--Navbar-->
+
+<div class = "container-fluid">
+	<nav class="navbar">
+		<ul class="nav navbar-nav">
+      		<a href ="index.html">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
+		</ul>
+		<ul style="font-size:18px" class="nav navbar-nav">
+            <li class="active"><a href="HomePage.html"><font color="white">Home</font></a></li>
+        </ul>
+        <ul style="font-size:18px" class="nav navbar-nav">
+            <li><a href="Profile.html"><font color="white">Profile</font></a></li>
+        </ul>
+		<div style="float:right; padding-top: 7px;" >
+			<button class="btn btn-primary btn-medium" id="btnLogout" onclick="logout()">Logout</button> 
+		</div>
+		<form style="padding-top:2px">
+  			<input type="text" name="search" placeholder="Search..">
+		</form>
+	</nav>
+</div>
+<!-- /Navbar -->
 
 <div class="container-fluid">
 
@@ -154,11 +198,6 @@
 	<div class="well well-header">
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
-
-		<div class="container" align="right">
-		<script src="js/index.js"></script>
-			<button class="btn btn-primary btn-large" id="btnLogout" onclick="logout()">Logout</button>
-    	</div>
 
       <p id="greeting" style="color:white;"><strong> Welcome!</strong></p>
       <p id="user" style="color:white;"> </p>

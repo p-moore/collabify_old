@@ -37,7 +37,7 @@
         var uid = user.uid;
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
-        user.getIdToken().then(function(accessToken) {
+        /*user.getIdToken().then(function(accessToken) {
           document.getElementById('sign-in-status').textContent = 'Signed in';
           document.getElementById('sign-in').textContent = 'Sign out';
           document.getElementById('account-details').textContent = JSON.stringify({
@@ -50,13 +50,12 @@
             accessToken: accessToken,
             providerData: providerData
           }, null, '  ');
-        });
-        window.location = "HomePage.html";
+        });*/
       } else {
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
+        /*document.getElementById('sign-in-status').textContent = 'Signed out';
         document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
+        document.getElementById('account-details').textContent = 'null';*/
       }
     }, function(error) {
       console.log(error);
@@ -77,20 +76,10 @@
 	
 
 	<div class='container'>
-		<input type="email" id="email_field" placeholder='Email'>
-
-		<input type="password" id="password_field" placeholder="Password">
-
-		<button id="submit" class="btn btn-primary" onclick="login()">
-			Log In
-		</button>
-		
-		<button id="btnSignUp" class="btn btn-action">
-			Sign Up
-		</button>
-
-		<button id="btnLogout" class="btn btn-action">
-			Logout
+		<input type="name" id="rename" placeholder='Update your name'>
+		<input type="profile" id="profilepicture" placeholder='Update your profile picture'>
+		<button id="submit" class="btn btn-primary" onclick="updateName()">
+			Update
 		</button>
 	</div>
 	

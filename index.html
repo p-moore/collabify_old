@@ -140,7 +140,9 @@ body {
   	-webkit-font-smoothing: antialiased;
   	font: normal 14px Roboto,arial,sans-serif;
 }
-
+footer{
+	position:;
+}
 .form-login {
     background-color: #EDEDED;
     padding-top: 10px;
@@ -153,10 +155,9 @@ body {
     box-shadow:0 1px 0 #cfcfcf;
 }
 
-#bg{
-	max-width: 500px;
+#su{
+	max-width: 400px;
 	height: 380px;
-  	float:right;
 	border-radius: 5px;
     background-color: #f2f2f2;
     font-family:arial;
@@ -218,14 +219,6 @@ input[type=text] {
     background-repeat: no-repeat;
 }
 
-#btnLogin{
-	
-}
-#btnPass{
-
-}
-
-
 h3{
 	font-color:white;
 }
@@ -250,12 +243,11 @@ h3{
 <div class = "container-fluid">
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
-      <a href ="index.html">
+      		<a href ="index.html">
 			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
 		</ul>
-		<ul class="nav navbar-nav">
+		<ul style="font-size:18px" class="nav navbar-nav">
 			<!--<li class="active"><a href="index.html"><font color="white">Home</font></a></li>-->
-			<li><a href="#" onclick="SignInCheck()"><font color="white">Profile</font></a></li>
 			<li style=""><a href="About.html"><font color="white">About</font></a></li>
 		</ul>
 		<div style="float:right; padding-top: 7px;" >
@@ -268,44 +260,44 @@ h3{
 </div>
 <!-- /Navbar -->
 
-<div class="container-fluid">
+<div class="container-fluid row">
 
-	<!-- Header container -->
-	<div class="container">
+	<div class="container col-lg-2"></div>
+	<div class="container col-lg-5">
 
-		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
+		<p align="left" style="color:white; font-size:28px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
 
-		<p style="color:white; text-align:left; font-size: 18px;">Making teamwork easier.</p>
+		<p style="color:white; text-align:left; font-size: 20px;">Making teamwork easier.</p>
 
-</div>
-		<!--Bac-->
-<div class="container" id="bg">
-	<div style="font-size: 25px; padding-top: 5px;">
-		Sign up today!
 	</div>
-	<div class="container-fluid">
-      	<div class="row">
-      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Name</label>
-      <input type="name" class="form-control" id="SignUpName" placeholder="Enter full name">
-    </div>
-    <div class="row">
-      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
-      <input type="email" class="form-control" id="SignUpEmail" placeholder="Enter a valid email">
-    </div>
-      <div class="row">
-    <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Username</label>
-    <input type="username" class="form-control" id="SignUpUserName" placeholder="Enter a username">
-  </div>
-    <div class="row">
-      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Password</label>
-      <input type="password" class="form-control" id="SignUpPassword" placeholder="Enter a password">
-    </div>
-  <br>
-  <div class = "SignUpButton" style="text-align:center">
-  <button type="submit" class="btn btn-block btn-primary" onclick="signUp()">Sign Up</button>
-</div>
-</div>
-</div>
+
+	<div class="container col-lg-5" id="su" style="align-self: center;">
+		<div style="font-size: 25px; padding-top: 5px; text-align:center;">
+			Sign up today!
+		</div>
+		<div class="container-fluid">
+	      	<div class="row">
+	      		<label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Name</label>
+	      		<input type="name" class="form-control" id="SignUpName" placeholder="Enter full name">
+	    	</div>
+		    <div class="row">
+		      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
+		      <input type="email" class="form-control" id="SignUpEmail" placeholder="Enter a valid email">
+		    </div>
+		    <div class="row">
+			    <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Username</label>
+			    <input type="username" class="form-control" id="SignUpUserName" placeholder="Enter a username">
+		  	</div>
+		    <div class="row">
+		      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Password</label>
+		      <input type="password" class="form-control" id="SignUpPassword" placeholder="Enter a password">
+		    </div>
+		  	<br>
+		  	<div class = "SignUpButton" style="text-align:center">
+		  		<button type="submit" class="btn btn-block btn-primary" onclick="signUp()">Sign Up</button>
+			</div>
+		</div>
+	</div>
 
 <!--Bac -->
 		<!-- Login Modal -->
@@ -360,7 +352,7 @@ h3{
 </div>
 
 <!-- Footer -->
-<div class="container-fluid" style="position: absolute; bottom: 0; width: 100%;">
+<div class="container-fluid" style="position: relative; bottom: 0px; width: 100%;">
 	<footer class="well footer footer-main">
 		<div class="container text-center">
 			<a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
@@ -377,5 +369,4 @@ h3{
 
 
 </body>
-</div>
 </html>
