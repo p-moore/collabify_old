@@ -1,0 +1,5 @@
+"id","order","score","weight","color","label"
+"TSK1",1.1,65,0.5,"#eddc42","Integration Test"
+"TSK2",1.2,24,0.5,"#eddc42","Fix Code XYZ"
+"TSK3",1.3,24,0.5,"#eddc42","Fix Code XYZ"
+"TSK4",1.4,24,0.5,"#eddc42","Fix Code XYZ"
