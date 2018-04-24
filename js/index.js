@@ -50,6 +50,11 @@ function signUp(){
 });*/
 }
 
+function loadPicture(){
+  var user = firebase.auth().currentUser;
+  document.getElementById("profilepic").value = user.photoURL;
+}
+
 function logout(){
  
 	firebase.auth().signOut().then(function() {
@@ -73,3 +78,22 @@ function logout(){
   // An error happened.
 });
 }*/
+
+function updateName(){
+  var user = firebase.auth().currentUser;
+  user.updateProfile({
+    displayName: document.getElementById("rename").value,
+    photoURL: document.getElementById("profilepicture").value,
+  }).then(function() {
+  // Update successful.
+}).catch(function(error) {
+  // An error happened.
+});
+console.log(user.displayName);
+console.log(user.photoURL);
+console.log(user.email);
+}
+
+function navigateToUpdate(){
+  window.location.href="collabify.html";
+}
