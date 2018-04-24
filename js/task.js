@@ -27,14 +27,17 @@ function Task(name, percent, prio, assigned){
   
   if(prio == 0){
     myLowTasks.push(this);
+    writeLowUserTask(percent, name);
     this.id = "dragL" + totalLowTasksMade;
 	totalLowTasksMade++;
   } else if (prio == 1) {
     myMediumTasks.push(this);
+    writeMedUserTask(this.percentage, this.name);
     this.id = "dragM" + totalMedTasksMade;
 	totalMedTasksMade++;
   } else {
     myHighTasks.push(this);
+    writeHighUserTask(this.percentage, this.name);
     this.id = "dragH" + totalHighTasksMade;
 	totalHighTasksMade++;
   }
@@ -148,5 +151,72 @@ function move(id) {
   }
 }
 
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCUI53GZ6IXzu957lBR-WWfmgEPNj-Nd8c",
+    authDomain: "collabify-us.firebaseapp.com",
+    databaseURL: "https://collabify-us.firebaseio.com",
+    projectId: "collabify-us",
+    storageBucket: "collabify-us.appspot.com",
+    messagingSenderId: "458971277153"
+  };
+  firebase.initializeApp(config);
 
+ var dB = firebase.database();
+
+
+//var LowTaskCompleted = 5000;
+//var LowTaskName = "Name";
+
+//writeUserData(TaskName, TaskCompleted);
+
+ function writeLowUserTask(LowTaskCompleted, LowTaskName) {
+  firebase.database().ref('LowTasks/').set({
+    taskName: LowTaskName,
+    taskCompleted: LowTaskCompleted,
+    
+    });
+  console.log("Hello");
+}
+
+ function writeMedUserTask(MedTaskCompleted, MedTaskName) {
+  firebase.database().ref('MedTasks/').set({
+    taskName: MedTaskName,
+    taskCompleted: MedTaskCompleted,
+    
+    });
+  console.log("Hello");
+}
+
+ function writeHighUserTask(HighTaskCompleted, HighTaskName) {
+  firebase.database().ref('HighTasks/').set({
+    taskName: HighTaskName,
+    taskCompleted: HighTaskCompleted,
+    
+    });
+  console.log("Hello");
+}
+
+var userId = firebase.auth().currentUser.uid;
+return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+  var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+  // ...
+});
+
+// Assume we have the following data in the Database:
+{
+  "name": {
+    "first": "Ada",
+    "last": "Lovelace"
+  }
+}
+
+// Test for the existence of certain keys within a DataSnapshot
+var ref = firebase.database().ref("users/ada");
+ref.once("value")
+  .then(function(snapshot) {
+    var percentCompleted = snapshot.child("LowTasks/taskCompleted").val(); // "Ada"
+    var lastName = snapshot.child("LowTasks").child("taskName").val(); // "Lovelace"
+    
+  });
 
