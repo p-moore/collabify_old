@@ -1,5 +1,6 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+<meta charset ="UTF-8">
 <head>
 
 <!-- jQuery libraries -->
@@ -25,6 +26,11 @@
     label, input { 
       display:block; 
     }
+
+    .well-header{
+      background-color:black;
+    }
+  
     input.text { 
       margin-bottom:12px; width:95%; padding: .4em; 
     }
@@ -310,6 +316,21 @@ function drop(ev) {
 
 <body>
 <br>
+
+<div class="container-fluid">
+
+<!-- Header container -->
+
+<div class="well well-header rounded" style="padding: 10px; height: 125px;">
+    <p align="left" style="color:white; font-size:25px;"><strong> Let's get started: </strong> Organize your ideas.</p>
+
+    <a href="HomePage.html"><button style="float:right;" class="btn btn-primary">Home</button></a>
+    <a href="SVG.html" style="float:left;"><button style="float:right;" class="btn btn-primary">Generate SVG</button></a>
+</div> 
+<br>
+<br>
+<br>
+
 <div class="container">
 
 <div style="width:100%; overflow: hidden;">	
@@ -384,6 +405,9 @@ function drop(ev) {
   <div id="collapseLow0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
+        <br>
+        <p><strong>Progress: </strong></p>
+        <br>
         <div class="w3-container w3-round w3-light-blue w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
 	  <div class="container" align="center">
@@ -410,6 +434,9 @@ function drop(ev) {
   <div id="collapseMed0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
+        <br>
+        <p><strong>Progress: </strong></p>
+        <br>
         <div class="w3-container w3-round w3-khaki w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
     <div class="container" align="center">
@@ -435,6 +462,9 @@ function drop(ev) {
   <div id="collapseHigh0">
     <div class="w3-container">
       <div class="w3-light-grey w3-round">
+        <br>
+        <p><strong>Progress: </strong></p>
+        <br>
         <div class="w3-container w3-round w3-pink w3-center" id="Bar" style="width:12%">12%</div>
       </div> 
     <div class="container" align="center">
@@ -452,21 +482,6 @@ function drop(ev) {
 
 <div id="clonehere"></div>
 
-<!-- Footer -->
-<div class="container-fluid" style="position: absolute; bottom: 0; width: 100%;">
-  <footer class="well footer footer-main">
-    <div class="container text-center">
-      <a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
-      <a href="#"><i class="fa fa-twitter" style="font-size:30px; padding:10px;"></i></a>
-      <a href="#"><i class="fa fa-google-plus" style="font-size:30px; padding:10px;"></i></a>
-      <a href="#"><i class="fa fa-instagram" style="font-size:30px; padding:10px;"></i></a>
-      <br>
-        <br>
-          <p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
-      </div>
-  </footer>
-</div>
-<!-- /Footer -->
 
 </body>
 </html>
