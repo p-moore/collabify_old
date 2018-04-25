@@ -4,7 +4,9 @@
 <meta charset ="UTF-8">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -206,17 +208,13 @@ input[type=text]:focus {
 </div>
 <!-- /Navbar -->
 
-
 <h2 style="text-align:center">My Profile</h2>
 
 <div style="padding-left:10px;">
 	<div class="card">
-	  <img id="profilepic" src="css/images/Rick.png" alt="Rick" style="width:100%">
+	  <img src="css/images/Rick.png" alt="Rick" style="width:100%">
 	  <h1 id="profilename">Rick Sanchez</h1>
-    <button id="change" class="btn btn-primary" onclick="navigateToUpdate()">
-      Update
-    </button>
-	  <p class="title">Scientist</p>
+      <p class="title" style="font-size: 18px;"><strong>Scientist<strong></p>
 	  <p>Harvard University</p>
 	  <div style="margin: 24px 0;">
 		<a href="#"><i class="fa fa-dribbble"></i></a> 
@@ -226,6 +224,11 @@ input[type=text]:focus {
 	 </div>
 	 <p>Rick @MultiverseEmail.com</p>
    <br>
+   <button id="change" class="btn btn-primary" onclick="navigateToUpdate()">
+      Update
+    </button>
+    <br>
+    <br>
 	</div>
   <br>
 </div>
@@ -233,6 +236,9 @@ input[type=text]:focus {
 
 <div class="well">
 	<p style="font-size:20px;"><strong> Projects </strong></p>
+<a href="" style="float:right;">
+  <i class="material-icons">add_circle</i></a>
+  <br>
 </div>
 
 <div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
@@ -274,6 +280,9 @@ input[type=text]:focus {
 
 <div class="well">
 	<p style="font-size:20px;"><strong> Contributions </strong></p>
+  <a href="" style="float:right;">
+  <i class="material-icons">add_circle</i></a>
+  <br>
 </div>
 
 <div class="card" align="left" style="width: 18rem; float:left; padding:5px;">
@@ -311,6 +320,24 @@ input[type=text]:focus {
 </div>
 
 </div>
+
+
+<!-- Footer -->
+<div class="container-fluid" style="position: relative; bottom: 0px; width: 100%;">
+  <footer class="well footer footer-main">
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
+      <a href="#"><i class="fa fa-twitter" style="font-size:30px; padding:10px;"></i></a>
+      <a href="#"><i class="fa fa-google-plus" style="font-size:30px; padding:10px;"></i></a>
+      <a href="#"><i class="fa fa-instagram" style="font-size:30px; padding:10px;"></i></a>
+      <br>
+        <br>
+          <p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
+      </div>
+  </footer>
+</div>
+<!-- /Footer -->
+
 
 </body>
 

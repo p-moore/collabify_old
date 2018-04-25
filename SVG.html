@@ -3,19 +3,60 @@
 
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="style.css">
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"> </script>
 <script src="js/task.js"> </script>
 </head>
 <body>
 
+	<!--Navbar-->
+
+<div class = "container-fluid">
+	<nav class="navbar">
+		<ul class="nav navbar-nav">
+      		<a href ="index.html">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
+		</ul>
+		<ul style="font-size:18px" class="nav navbar-nav">
+			<li style=""><a href="HomePage.html"><font color="white">Home</font></a></li>
+			<li style=""><a href="About.html"><font color="white">About</font></a></li>
+
+		</ul>
+		<form style="padding-top:2px">
+  			<input type="text" name="search" placeholder="Search..">
+		</form>
+	</nav>
+</div>
+<!-- /Navbar -->
+
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 
-
+<div class="container" align="center">
 <div id="Graph" align="center" style="padding: 100px;" class="container">
-<script src="draw.js" ></script>
+	<script src="draw.js" ></script>
+
+<a href="Board.html">
+<button class="btn btn-primary btn-medium">Back to Board</button></a>
 <!--<script src="app.js" ></script>-->
 </div>
+
+</div>
 </body>
+
 </html>
