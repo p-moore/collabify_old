@@ -171,51 +171,43 @@ function move(id) {
 //writeUserData(TaskName, TaskCompleted);
 
  function writeLowUserTask(LowTaskCompleted, LowTaskName) {
-  firebase.database().ref('LowTasks/').set({
+  firebase.database().ref('Tasks/LowTasks/').set({
     taskName: LowTaskName,
     taskCompleted: LowTaskCompleted,
     
     });
-  console.log("Hello");
+  console.log("Write to database successful - Low");
 }
 
  function writeMedUserTask(MedTaskCompleted, MedTaskName) {
-  firebase.database().ref('MedTasks/').set({
+  firebase.database().ref('Tasks/MedTasks/').set({
     taskName: MedTaskName,
     taskCompleted: MedTaskCompleted,
     
     });
-  console.log("Hello");
+  console.log("Write to database successful - Med");
 }
 
  function writeHighUserTask(HighTaskCompleted, HighTaskName) {
-  firebase.database().ref('HighTasks/').set({
+  firebase.database().ref('Tasks/HighTasks/').set({
     taskName: HighTaskName,
     taskCompleted: HighTaskCompleted,
     
     });
-  console.log("Hello");
+  console.log("Write to database successful - High");
 }
 
-var userId = firebase.auth().currentUser.uid;
-return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+/*var userId = firebase.auth().currentUser.uid;
+return firebase.database().ref('/Tasks/' + userId).once('value').then(function(snapshot) {
   var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
-  // ...
-});
-
-// Assume we have the following data in the Database:
-{
-  "name": {
-    "first": "Ada",
-    "last": "Lovelace"
-  }
-}
+  return username;
+});*/
 
 // Test for the existence of certain keys within a DataSnapshot
 var ref = firebase.database().ref("users/ada");
 ref.once("value")
   .then(function(snapshot) {
-    var percentCompleted = snapshot.child("LowTasks/taskCompleted").val(); // "Ada"
+    var percentCompleted = snapshot.child("LowTasks/percentCompleted").val(); // "Ada"
     var lastName = snapshot.child("LowTasks").child("taskName").val(); // "Lovelace"
     
   });
