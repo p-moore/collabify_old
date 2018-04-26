@@ -62,6 +62,7 @@
         var uid = user.uid;
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
+        console.log("user signed in");
         user.getIdToken().then(function(accessToken) {
           document.getElementById('sign-in-status').textContent = 'Signed in';
           document.getElementById('sign-in').textContent = 'Sign out';
