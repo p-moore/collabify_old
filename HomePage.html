@@ -63,6 +63,9 @@
         var uid = user.uid;
         var phoneNumber = user.phoneNumber;
         var providerData = user.providerData;
+        console.log("Display: "+user.displayName+", uid: "+user.uid);
+        loadUser();
+        console.log("there is a user here");
         user.getIdToken().then(function(accessToken) {
           document.getElementById('user').textContent = email;
           /*document.getElementById('account-details').textContent = JSON.stringify({
@@ -167,8 +170,8 @@
 
 </head>
 <body>
-<!--Navbar-->
 
+<!--Navbar-->
 <div class = "container-fluid">
 	<nav class="navbar">
 		<ul class="nav navbar-nav">
@@ -194,7 +197,6 @@
 <div class="container-fluid">
 
 <!-- Header container -->
-
 	<div class="well well-header">
 
 		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
@@ -202,42 +204,41 @@
       <p id="greeting" style="color:white;"><strong> Welcome!</strong></p>
       <p id="user" style="color:white;"> </p>
 	</div>
-
 <!-- /Header container -->
 
 
 <div class="container-fluid">
-	
-		<p id ="print"></p>
-			
-			<div class="well container-fluid" style="background-color:#549fbc;"><p align="center" style="font-size:20px;"><strong>Active Projects</strong></p> </div>
-				<div class="card" align="left" style="width: 18rem; float:left; padding:25px;">
-					<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title"><strong>Project 1</strong></h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="Board.html" class="btn btn-primary">View</a>
-					</div>
-				</div>
-				<div class="card" align="left" style="width: 18rem; float:left; padding:25px;">
-					<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title"><strong>Project 2</strong></h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="Board.html" class="btn btn-primary">View</a>
-					</div>
-				</div>
-				<div class="card" align="left" style="width: 18rem; float:left; padding:25px;">
-					<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title"><strong>Project 3</strong></h5>
-						<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-						<a href="Board.html" class="btn btn-primary">View</a>
-					</div>
-				</div>
-			
-			
+	<p id ="print"></p>
+	<!--Active Projects-->
+	<div class="well container-fluid" style="background-color:#549fbc;"><p align="center" style="font-size:20px;"><strong>Active Projects</strong></p> </div>
+	<div class="card" align="left" style="width: 18rem; float:left; padding:25px;">
+		<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;" alt="Card image cap">
+		<div class="card-body">
+			<h5 class="card-title"><strong>Project 1</strong></h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<a href="Board.html" class="btn btn-primary">View</a>
+		</div>
 	</div>
+	<div class="card" align="left" style="width: 18rem; float:left; padding:25px;">
+		<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;" alt="Card image cap">
+		<div class="card-body">
+			<h5 class="card-title"><strong>Project 2</strong></h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<a href="Board.html" class="btn btn-primary">View</a>
+		</div>
+	</div>
+	<div id="Project 1" class="card" align="left" style="width: 18rem; float:left; padding:25px;">
+		<img class="card-img-top" src="css/images/Tool.png" style="height:125px; width:150px;">
+
+		<div class="card-body">
+			<h5 id="projectname" class="card-title"><strong>Project 3</strong></h5>
+			<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+			<!--<a href="Board.html" class="btn btn-primary">View</a>-->
+			<button onclick="loadUser()">Hello</button>
+		</div>
+	</div>
+	<!--/Active Projects-->
+</div>
 
 	
 

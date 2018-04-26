@@ -150,3 +150,67 @@ function move(id) {
     }
   }
 }
+
+// Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCUI53GZ6IXzu957lBR-WWfmgEPNj-Nd8c",
+    authDomain: "collabify-us.firebaseapp.com",
+    databaseURL: "https://collabify-us.firebaseio.com",
+    projectId: "collabify-us",
+    storageBucket: "collabify-us.appspot.com",
+    messagingSenderId: "458971277153"
+  };
+  firebase.initializeApp(config);
+
+ var dB = firebase.database();
+
+
+//var LowTaskCompleted = 5000;
+//var LowTaskName = "Name";
+
+//writeUserData(TaskName, TaskCompleted);
+
+
+
+ function writeLowUserTask(LowTaskCompleted, LowTaskName) {
+  firebase.database().ref('Tasks/LowTasks/').set({
+    taskName: LowTaskName,
+    taskCompleted: LowTaskCompleted,
+    
+    });
+  console.log("Write to database successful - Low");
+}
+
+ function writeMedUserTask(MedTaskCompleted, MedTaskName) {
+  firebase.database().ref('Tasks/MedTasks/').set({
+    taskName: MedTaskName,
+    taskCompleted: MedTaskCompleted,
+    
+    });
+  console.log("Write to database successful - Med");
+}
+
+ function writeHighUserTask(HighTaskCompleted, HighTaskName) {
+  firebase.database().ref('Tasks/HighTasks/').set({
+    taskName: HighTaskName,
+    taskCompleted: HighTaskCompleted,
+    
+    });
+  console.log("Write to database successful - High");
+}
+
+/*var userId = firebase.auth().currentUser.uid;
+return firebase.database().ref('/Tasks/' + userId).once('value').then(function(snapshot) {
+  var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+  return username;
+});*/
+
+// Test for the existence of certain keys within a DataSnapshot
+var ref = firebase.database().ref("users/ada");
+ref.once("value")
+  .then(function(snapshot) {
+    var percentCompleted = snapshot.child("LowTasks/percentCompleted").val(); // "Ada"
+    var lastName = snapshot.child("LowTasks").child("taskName").val(); // "Lovelace"
+    
+  });
+
