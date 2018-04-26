@@ -77,6 +77,11 @@
 	
 </head>
 <style>
+.footer-main{
+	background-color:black;
+  margin: 15px;
+
+}
 
 h3{
 	color:white;
@@ -96,6 +101,27 @@ body{
 </style>
 
 <body>
+<!--Navbar-->
+
+<div class = "container-fluid">
+	<nav class="navbar">
+		<ul class="nav navbar-nav">
+      		<a href ="index.html">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
+		</ul>
+		<ul style="font-size:18px" class="nav navbar-nav">
+			<li><a href="index.html"><font color="white">Home</font></a></li>
+			<li><a href="About.html"><font color="white">About</font></a></li>
+		</ul>
+		<div style="float:right; padding-top: 7px;" >
+			<!--<button class="btn btn-primary btn-medium" id="btnLogin" onclick="navigateToLoginPage()">Login</button> -->
+		</div>
+		<form style="padding-top:2px">
+  			<input type="text" name="search" placeholder="Search..">
+		</form>
+	</nav>
+</div>
+<!-- /Navbar -->
 
 	<div class="container" align="center">
 
@@ -115,6 +141,26 @@ body{
 	<br>
 	</div>
 	</div>
+
+<br>
+
+
+<!-- Footer -->
+<div class="container-fluid" style="position: relative; bottom: 0px; width: 100%;">
+	<footer class="well footer footer-main">
+		<div class="container text-center">
+			<a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
+			<a href="#"><i class="fa fa-twitter" style="font-size:30px; padding:10px;"></i></a>
+			<a href="#"><i class="fa fa-google-plus" style="font-size:30px; padding:10px;"></i></a>
+			<a href="#"><i class="fa fa-instagram" style="font-size:30px; padding:10px;"></i></a>
+			<br>
+				<br>
+					<p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
+	    </div>
+	</footer>
+</div>
+<!-- /Footer -->
+
 
 </body>
 </html>

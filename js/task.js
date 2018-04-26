@@ -27,17 +27,17 @@ function Task(name, percent, prio, assigned){
   
   if(prio == 0){
     myLowTasks.push(this);
-    writeLowUserTask(percent, name);
+    //writeLowUserTask(percent, name);
     this.id = "dragL" + totalLowTasksMade;
 	totalLowTasksMade++;
   } else if (prio == 1) {
     myMediumTasks.push(this);
-    writeMedUserTask(this.percentage, this.name);
+    //writeMedUserTask(this.percentage, this.name);
     this.id = "dragM" + totalMedTasksMade;
 	totalMedTasksMade++;
   } else {
     myHighTasks.push(this);
-    writeHighUserTask(this.percentage, this.name);
+    //writeHighUserTask(this.percentage, this.name);
     this.id = "dragH" + totalHighTasksMade;
 	totalHighTasksMade++;
   }
