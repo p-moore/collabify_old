@@ -1,5 +1,4 @@
-<!doctype html>
-<script>
+
 var percent = 85;
  
 var ratio=percent/100;
@@ -155,58 +154,3 @@ var animate=function(){
  
 setTimeout(animate,0);
 
-</script>
-
-
-
-<style>
-
-body {
-    background-color: #ccc;
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    height: 100%;
-}
-
-.widget {
-    margin: 0 auto;
-    width:350px;
-    margin-top:50px;
-    background-color:#fff;
-    -background-color: #222D3A;
-    border-radius: 5px;
-    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.3);
-
-}
-
-.header{
-    background-color: #eee;
-    height:40px;
-    color:#555;
-    text-align: center;
-    line-height: 40px;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    font-weight: 400;
-    font-size: 1.5em;
-    text-shadow: 1px 1px #fff;
-    border-bottom: 1px solid #eaeaea;
-}
-
-.chart-container{
-    padding:25px;
-}
-
-</style>
-
-
-<html>
-
-<div class="widget">
-    <div class="header">Progress Status</div>
-    <div id="chart" class="chart-container">
-
-    </div>
-</div>
-
-</html>
