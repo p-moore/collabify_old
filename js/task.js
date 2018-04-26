@@ -45,7 +45,7 @@ function Task(name, percent, prio, assigned){
 
 function displayLowTask(task){
 
-  var d = new Date(task.date);
+  var d = new Date(task.date); //reads miliseconds to dates
 
   $( "#" + task.id + " #lowHeader button" ).attr("id", "delete-"+task.id);
   $( "#" + task.id + " #lowHeader a" ).attr("id", "show-"+task.id);
@@ -102,7 +102,7 @@ function displayMediumTask(task){
  }
 
 function move(id) {
-  var parsedID = id.slice(13);
+  var parsedID = id.slice(13); //seperates ID into usable parts
   var parsedPrio = parsedID.slice(0,1);
   var parsedIDNum = parsedID.slice(1);
 
@@ -111,6 +111,7 @@ function move(id) {
     var width = elem.textContent.slice(0,1);
 
     var ids = setInterval(frame, 10);
+
     function frame() {
       if (width >= 100) { //ending width
         clearInterval(ids);
