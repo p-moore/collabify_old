@@ -7,23 +7,17 @@
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"/>
-
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-
-
+<!--homestyle.css file-->
+<link href="css/homestyle.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 
 <!-- Firebase back-end code -->
 
@@ -42,66 +36,60 @@
   firebase.initializeApp(config);
 </script>
 
-<script src="index.js"/>
+<script src="js/index.js"/>
 
 <!-- /Firebase back-end code -->
+</script>
 
 
+<script type="text/javascript">
+  initApp = function() {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+        console.log("user signed in");
+        user.getIdToken().then(function(accessToken) {
+          document.getElementById('sign-in-status').textContent = 'Signed in';
+          document.getElementById('sign-in').textContent = 'Sign out';
+          document.getElementById('account-details').textContent = JSON.stringify({
+            displayName: displayName,
+            email: email,
+            emailVerified: emailVerified,
+            phoneNumber: phoneNumber,
+            photoURL: photoURL,
+            uid: uid,
+            accessToken: accessToken,
+            providerData: providerData
+          }, null, '  ');
+        });
+        window.location = "HomePage.html";
+      } else {
+        // User is signed out.
+/*        document.getElementById('sign-in-status').textContent = 'Signed out';
+        document.getElementById('sign-in').textContent = 'Sign in';
+        document.getElementById('account-details').textContent = 'null';*/
+      }
+    }, function(error) {
+      console.log(error);
+    });
+  };
 
-// <!-- FireBase Authentication -->
-// <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"/>
-
-
-<script>
-//
-//
-// function init(){
-// 	// Initialize Firebase
-// 	  var config = {
-// 		apiKey: "AIzaSyC4HNK8mVykBDXOe_pLZscNXLYQGPU6q98",
-// 		authDomain: "collabify-81977.firebaseapp.com",
-// 		databaseURL: "https://collabify-81977.firebaseio.com",
-// 		projectId: "collabify-81977",
-// 		storageBucket: "collabify-81977.appspot.com",
-// 		messagingSenderId: "301636297343"
-// 	  };
-// 	  firebase.initializeApp(config);
-//
-// 	  const username = document.getElementById('userName');
-// 	  const password = document.getElementById('userPassword');
-// 	  const loginbtn = document.getElementById('btnLogin');
-// 	  const Signupbtn = document.getElementById('btnPass');
-//
-// 	  loginbtn.addEventListener('click', e => {
-//
-// 		const email = username.value;
-// 		const passwordStored  = password.value;
-// 		const auth = firebase.auth();
-//
-// 		//Sign-in process
-//
-// 		const promise = auth.signInWithEmailAndPassword(email,password);
-// 		promise.catch(e => console.log(e.message));})
-//
-//
-// 		//firebase.auth().onAuthStateChanged(firebaseUser){
-//
-// 		//	if(firebaseUser){console.log(firebaseUser)};
-// 		//	else{console.log('Not logged in')};
-//
-//
-// 		//}
-//
-//
-//
-//
-//
-// 	}
-//
-// </script>
+  window.addEventListener('load', function() {
+    initApp()
+  });
+</script>
+</head>
 
 <!-- Sign in Validation Function -->
 <script>
+
 function validateForm() {
     var x = document.forms["myForm"]["fname"].value;
     if (x == "") {
@@ -109,10 +97,18 @@ function validateForm() {
         return false;
     }
 }
+
 function ClearValues() {
     document.getElementById("LoginInfo").reset();
 	document.getElementById("SignUpInfo").reset();
 }
+
+function SignInCheck(){
+
+	window.alert("Woah...! You must login first!");
+
+}
+
 </script>
 
 <!-- /Sign in Validation Function -->
@@ -123,14 +119,19 @@ function ClearValues() {
 
 
 <style>
+
 .well-header{
 	background-color:black;
 }
 @import url(http://fonts.googleapis.com/css?family=Roboto:400);
 body {
-  background-color:#fff;
-  -webkit-font-smoothing: antialiased;
-  font: normal 14px Roboto,arial,sans-serif;
+	background-image: url("css/images/CollabifyLogIn.jpg");
+  	background-color:#fff;
+  	-webkit-font-smoothing: antialiased;
+  	font: normal 14px Roboto,arial,sans-serif;
+}
+footer{
+	position:;
 }
 .form-login {
     background-color: #EDEDED;
@@ -143,9 +144,19 @@ body {
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
 }
+
+#su{
+	max-width: 400px;
+	height: 380px;
+	border-radius: 5px;
+    background-color: #f2f2f2;
+    font-family:arial;
+}
+
 .form-control {
     border-radius: 10px;
 }
+
 .wrapper {
     text-align: center;
 }
@@ -157,48 +168,128 @@ body {
 }
 .footer-main{
 	background-color:black;
+  margin: 15px;
+
 }
-body{
-background-image:images/collaboration.jpg;
+ul {
+    list-style-type: none;
+    margin: 0;
+    /*padding: 0;*/
+    overflow: hidden;
+
 }
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+#logo {
+	padding: none !important;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #111;
+}
+
+input[type=text] {
+    width: 225px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 0px;
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+h3{
+	font-color:white;
+}
+
+.navbar{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.astext {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+}
+
 </style>
-
-
-</head>
 
 <body>
 
-<div>
+<!--Navbar-->
 
-<div class="container-fluid">
-
-<!-- Header container -->
-	<div class="well well-header">
-
-		<p align="left" style="color:white; font-size:25px;"><strong> Collabify: </strong> Create,Share,Collaborate;</p>
-
-		<div class="container" align="right">
-			<button class="btn btn-primary btn-large" id="btnLogin" data-toggle="modal" data-target="#LoginModal">Login</button>
-			<button class="btn btn-primary btn-large" id="btnPass" data-toggle="modal" data-target="#SignUpModal">Signup</button>
-				<!-- Search Bar -->
-				<div class="row">
-				<div class="col-lg-6">
-					<div class="input-group" >
-						<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Go!</button>
-						</span>
-						<input type="text" class="form-control" placeholder="Search for..."></input>
-					</div><!-- /input-group -->
-				</div><!-- /.col-lg-6 -->
-				<div class="col-lg-6">
-					<div class="input-group">
-					</div>
-				</div>
-				</div>
+<div class = "container-fluid">
+	<nav class="navbar">
+		<ul class="nav navbar-nav">
+      		<a href ="index.html">
+			<img src="css/images/CollabifyLogo.png" style = "height: 50px; width:130px; padding: 5px;"></a>
+		</ul>
+		<ul style="font-size:18px" class="nav navbar-nav">
+			<!--<li class="active"><a href="index.html"><font color="white">Home</font></a></li>-->
+			<li style=""><a href="About.html"><font color="white">About</font></a></li>
+		</ul>
+		<div style="float:right; padding-top: 7px;" >
+			<button class="btn btn-primary btn-medium" id="btnLogin" onclick="navigateToLoginPage()">Login</button> 
 		</div>
-		<!-- /Search Bar -->
+		<form style="padding-top:2px">
+  			<input type="text" name="search" placeholder="Search..">
+		</form>
+	</nav>
+</div>
+<!-- /Navbar -->
 
+<div class="container-fluid row">
 
+	<div class="container col-lg-2"></div>
+	<div class="container col-lg-5">
+
+		<p align="left" style="color:white; font-size:28px;"><strong> Collabify: </strong> Create, Share, Collaborate;</p>
+
+		<p style="color:white; text-align:left; font-size: 20px;">Making teamwork easier.</p>
+
+	</div>
+
+	<div class="container col-lg-5" id="su" style="align-self: center;">
+		<div style="font-size: 25px; padding-top: 5px; text-align:center;">
+			Sign up today!
+		</div>
+		<div class="container-fluid">
+	      	<div class="row">
+	      		<label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Name</label>
+	      		<input type="name" class="form-control" id="SignUpName" placeholder="Enter full name">
+	    	</div>
+		    <div class="row">
+		      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Email</label>
+		      <input type="email" class="form-control" id="SignUpEmail" placeholder="Enter a valid email">
+		    </div>
+		    <div class="row">
+			    <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Username</label>
+			    <input type="username" class="form-control" id="SignUpUserName" placeholder="Enter a username">
+		  	</div>
+		    <div class="row">
+		      <label style="font-size:15px; font-weight:normal; color:black; align:left; padding-top:10px;">Password</label>
+		      <input type="password" class="form-control" id="SignUpPassword" placeholder="Enter a password">
+		    </div>
+		  	<br>
+		  	<div class = "SignUpButton" style="text-align:center">
+		  		<button type="submit" class="btn btn-block btn-primary" onclick="signUp()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+
+<!--Bac -->
 		<!-- Login Modal -->
 
 		<div class="modal fade" id="LoginModal" role="dialog">
@@ -211,25 +302,23 @@ background-image:images/collaboration.jpg;
 					<h4 class="modal-title">Welcome back!</h4>
 				</div>
 			<div class="modal-body">
-				<form action="/post.php" method="post" id="LoginInfo">
+				<form method="post" id="LoginInfo">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="form-login">
-								<h4>Sign in</h4>
-								<p> to continue to Collabify </p>
-								<input type="text" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
-								</br>
-								<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
-								<div class="wrapper">
-								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Login" onclick="login()" required </><i class="fa fa-sign-in"></i>
-
-								</span>
+									<h4><strong>Sign in</strong></h4>
+									<p> to continue to Collabify </p>
+									<input type="email" id="email_field" class="form-control input-sm chat-input" placeholder="Username"  required />
+									</br>
+									<input type="password" id="password_field" class="form-control input-sm chat-input" placeholder="Password" required />
+									</br>
+									<div class="wrapper">
+										<span class="group-btn">
+		                  					<button class="btn btn-primary" value="Login" onclick="login()">Login</button>
+										</span>
+									</div>
 								</div>
-								</div>
-
 							</div>
 						</div>
 					</div>
@@ -246,93 +335,14 @@ background-image:images/collaboration.jpg;
 
 		<!-- /Login Modal -->
 
-
-		<!-- Sign-up Modal -->
-
-		<div class="modal fade" id="SignUpModal" role="dialog">
-			<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Register to get started</h4>
-				</div>
-			<div class="modal-body">
-				<form action="/post.php" method="post" id="SignUpInfo">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-5">
-								<div class="form-login">
-								<h4>Sign up</h4>
-								<p> to continue to Collabify </p>
-								<input type="text" id="SignUpUserName" class="form-control input-sm chat-input" placeholder="Username" required />
-								</br>
-								<input type="password" id="SignUpUserPassword" class="form-control input-sm chat-input" placeholder="Password" required />
-								</br>
-								<input type="text"  id="SignUpName" class="form-control input-sm chat-input" placeholder="Name" required />
-								<br>
-								<input type="email" id="SignUpEmail" class="form-control input-sm chat-input" placeholder="Enter a Valid email address" required />
-								<br>
-								<input type="text"  id="SignUpOrg" class="form-control input-sm chat-input" placeholder="Organization"required />
-								<br>
-								<div class="wrapper">
-								<span class="group-btn">
-									<input class="btn btn-primary" type="submit" value="Sign-up" onclick="creatUser()"required </><i class="fa fa-sign-in"></i>
-								</span>
-								</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-			<button onclick="ClearValues()" class="btn btn-primary btn-default">Clear fields</button>
-				<button type="button" class="btn btn-primary btn-default" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-
-		<!-- /Login Modal -->
-
-
-
-	</div>
-	</div>
-
-	</div>
-	</div>
-
-	<!-- Body opening image -->
-	<div class="container-fluid body-image">
-		<img src="images/collaboration.jpg" class=" image-opacity img-thumbnail img-fluid" alt="Collaborate">
-	</div>
-	<!-- Close Body Image -->
-
-
-
-	<!-- User Login -->
-
-<!-- Logged In state test  -->
-
-
-
-<!-- /Logged In state test -->
-
-
-
-	<!-- Closed User Login -->
-
-
-	<div class="container footer-bg">
-
-
-
-	</div>
-<!-- Header container; -->
-
+		
+</div>
+</div>
+</div>
+</div>
 
 <!-- Footer -->
+<div class="container-fluid" style="position: relative; bottom: 0px; width: 100%;">
 	<footer class="well footer footer-main">
 		<div class="container text-center">
 			<a href="#"><i class="fa fa-facebook" style="font-size:30px; padding:10px;"></i></a>
@@ -344,24 +354,9 @@ background-image:images/collaboration.jpg;
 					<p id="footer-text" style="color:white"> Contact us at <strong>collabify.us@gmail.com </strong></p>
 	    </div>
 	</footer>
+</div>
 <!-- /Footer -->
 
 
-</div>
-
-<div id="logger_out_state">
-
-<h1> Logged out sir! </h1>
-
-</div>
-
-<div id="logger_in_state">
-
-<h1> You are successfully logged in </h1>
-
-</div>
-
-
 </body>
-</div>
 </html>
