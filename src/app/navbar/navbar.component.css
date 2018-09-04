@@ -1,0 +1,17 @@
+body {
+  position: relative;
+  font-family: 'Exo 2', sans-serif;
+  font-size: medium;
+}
+#section1 {padding-top:50px;height:500px;color: #fff;
+  background-color:dodgerblue;
+  /*background-image: url("src/assets/mountain-climbing.jpg");
+  background-repeat: no-repeat;
+  background-size: 1700px 900px;*/
+}
+#section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+#section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+#section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+#section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+#section43 {padding-top:50px;height:375px;color: #fff; background-color: dimgrey;}
+
